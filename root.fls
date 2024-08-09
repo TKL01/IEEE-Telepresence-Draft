@@ -398,6 +398,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT ./images/clip.pdf
+INPUT ./images/clip.pdf
+INPUT images/clip.pdf
+INPUT ./images/clip.pdf
+INPUT ./images/clip.pdf
 INPUT ./images/transversability.pdf
 INPUT ./images/transversability.pdf
 INPUT images/transversability.pdf
