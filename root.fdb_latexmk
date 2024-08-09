@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1723223588 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723223590
+["pdflatex"] 1723236526 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723236528
   "/etc/texmf/web2c/texmf.cnf" 1709736642 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723223588 18032 34e49ba2566eb51856e5a131aad1f529 ""
+  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723236525 19588 f915e30e6503547dd437044b6e966006 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -79,14 +79,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1710337261 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710429084 1879871 d97401cad6cc0cdbb20515f6e75e398a ""
-  "ieeeconf.cls" 1461425939 202167 7b37f8353df61c9733ed46143eff807a ""
+  "ieeeconf.cls" 1723236157 202166 72fb7520d2463fbe11773e8fc42848df ""
   "images/ROS_Web_App_Architecture.pdf" 1723220977 247474 744a253acaf82e0802f5df0e28683998 ""
   "images/clip.pdf" 1723222159 1507489 50b9d49257f0acb6ef875f579dd95271 ""
+  "images/galaxycontrol.jpg" 1723236157 755258 619cb64cccfa4b3a12f39875f1f5fafc ""
   "images/overviewplots.png" 1711360586 52296 05fd634176d725185ba5f670bdba64eb ""
   "images/sim_husky_mapping.png" 1723219971 2446784 2a07efff16628465695d472eb1746f2e ""
   "images/transversability.pdf" 1723215590 75339 f59e1af060b00a8cf8b3a3c12c9534a0 ""
-  "root.aux" 1723223590 2860 74625b01c9269c45313c5f5fc41a86b5 "pdflatex"
-  "root.tex" 1723223588 18032 34e49ba2566eb51856e5a131aad1f529 ""
+  "root.aux" 1723236528 2926 997d8479ba518ec5053cdf3a92da9172 "pdflatex"
+  "root.tex" 1723236525 19588 f915e30e6503547dd437044b6e966006 ""
   (generated)
   "root.aux"
   "root.log"
