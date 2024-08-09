@@ -98,15 +98,22 @@ a virtual joystick to the /cmd\_vel topic of the robot to set it in motion. The 
 \end{figure}
 
 \subsection{Control panel}
-The control panel in Fig. \ref{fig:controlpanel} shows a live image stream (in the center) of a Zed2i camera attached on the Husky. Above the camera image, a navigation bar is located. 
+The control panel in Fig. \ref{fig:clip} shows a live image stream (in the center) of a Zed2i camera attached on the Husky. Above the camera image, a navigation bar is located. 
 Below the camera image there is a speed slider and two control elements such as a virtual joystick and virtual keyboard keys for controlling the Husky. 
 In addition, the Husky can be controlled with a physical keyboard when the operator has access to the control panel. Keyboard control can be helpful in situations where precision is required compared to the joystick.
 Other elements such as the battery SoC and the WebSocket connection are also shown embedded in the navigation bar.
+
 \begin{figure}[t]
-    \centerline{\includegraphics[width=0.98\columnwidth]{images/control_panel.png}}
-    \caption{Control panel of the Web App with a navigation bar on top, camera stream in the center, control elements left and right and a speed slider to adjust the robot speed.}
-    \label{fig:controlpanel}
+    \centerline{\includegraphics[width=8.9cm]{images/clip.pdf}}
+    \caption{Controlling the Husky via the web interface with the virtual joystick, a speed slider and the live camera image.}
+    \label{fig:clip}
 \end{figure}
+
+% \begin{figure}[t]
+%     \centerline{\includegraphics[width=0.98\columnwidth]{images/control_panel.png}}
+%     \caption{Control panel of the Web App with a navigation bar on top, camera stream in the center, control elements left and right and a speed slider to adjust the robot speed.}
+%     \label{fig:controlpanel}
+% \end{figure}
 \subsection{Data panel}
 The data panel in Fig. \ref{fig:overviewplots} shows critical live robot data such as the left and right motor temperatures as gauges. 
 Furthermore, the temperatures and the battery SoC are shown in diagrams with time progression. 
@@ -135,12 +142,6 @@ Additional features of the framework include:
 Bootstrap, a frontend framework, was leveraged to facillitate responsive web design \cite{bootstrap}. 
 This allows control elements and data visualizations to be optimally displayed on mobile or desktop devices of the robot operator and ensures that the robot operator retains an overview and control of the robot.
 
-Fig. \ref{fig:clip} shows our web interface in action.
-\begin{figure}[htbp]
-    \centerline{\includegraphics[width=8.9cm]{images/clip.pdf}}
-    \caption{Controlling the Husky via the web interface with the virtual joystick and the live camera image.}
-    \label{fig:clip}
-\end{figure}
 
 
 
