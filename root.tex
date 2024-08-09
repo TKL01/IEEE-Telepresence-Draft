@@ -68,7 +68,7 @@ Shared Autonomy: A PLACEHOLDER TITLE
 \section{INTRODUCTION}
 Geometric navigation approaches that are for example LiDAR based, are especially limited outdoors \cite{wayfast}.
 Self-supervised autonomous navigation systems such as BADGR \cite{BADGR}, WayFAST \cite{wayfast} or the successor model WayFASTER \cite{wayfaster}, are therefore used to estimate the traversability with regard to bumps and navigable objects such as tall grass.
-Even though these neural networks excel in a static environment, they are constrained in a dynamic and busy environment where people, animals or other objects such as cars are moving.
+Even though these camera-image based neural networks excel in a static environment, they are constrained in a dynamic and busy environment where people, animals or other objects such as cars are moving.
 Furthermore, not all parameters can be taken into account in these models. Parameters such as battery state of charge (SoC) or engine temperatures of the robot are equally important to ensure successful and safe navigation.
 It is therefore common for robots to be additionally monitored and controlled by a human operator.
 For these reasons, it is advantageous for a person with better situational awareness to take back control for a certain action or period of time. 
@@ -78,16 +78,56 @@ We therefore provide the robot operator with a web-based interface that reflects
 Security aspects such as login and persistent data storage via a database are also integrated. 
 In addition, a concept for shared autonomy with the Husky UGV mobile robotic platform from Clearpath \cite{husky} and WayFASTER are presented. 
 
-\subsection{Web Framework, Wiederholung aus MMAR24 Paper?}
-The web framework is used to control and monitor the Husky, which runs on ROS2 Humble and is platform-independent. 
-Due to the web-based approach, all devices with a browser can access the app.  
-\begin{figure}[htbp]
+\section{Web Framework}
+
+The web framework is based on flask and is used to control and monitor the Husky, which runs on ROS2 Humble and is platform-independent. 
+Bidirectional communication between human and the robot is provided by the rosbridge\_suite package [source].   
+Due to the web-based approach, all devices with a browser can access the app, provided they are in the same local network as the robot.
+Fig. \ref{fig:userapp} shows the backend architecture, ROS packages and other relevant information which were leveraged for developing the framework.
+\begin{figure}[t]
     \centerline{\includegraphics[width=8.9cm]{images/ROS_Web_App_Architecture.pdf}}
-    \caption{Backend architecture of the web app with a Screenshot of the frontend}
+    \caption{Backend architecture of the web app and tools used.}
     \label{fig:userapp}
 \end{figure}
 
-\section{Placeholder}
+\subsection{Control panel}
+The control panel in Fig. \ref{fig:controlpanel} shows a live image stream (in the center) of a Zed2i camera attached on the Husky. Above the camera image, a navigation bar is located. 
+Below the camera image there is a speed slider and two control elements such as a virtual joystick and virtual keyboard keys for controlling the Husky. 
+In addition, the Husky can be controlled with a physical keyboard when the operator has access to the control panel. Keyboard control can be helpful in situations where precision is required compared to the joystick.
+Other elements such as the battery SoC and the WebSocket connection are also shown embedded in the navigation bar.
+\begin{figure}[b]
+    \centerline{\includegraphics[width=0.98\columnwidth]{images/control_panel.png}}
+    \caption{Control panel of the Web App with a navigation bar on top, camera stream in the center, control elements left and right and a speed slider to adjust the robot speed.}
+    \label{fig:controlpanel}
+\end{figure}
+\subsection{Data panel}
+The data panel in Fig. \ref{fig:overviewplots} shows critical live robot data such as the left and right motor temperatures as gauges. 
+Furthermore, the temperatures and the battery SoC are shown in diagrams with time progression. 
+The data for the visualization is provided by an SQLite database, which in turn reads the data from the respective ROS topics of the Husky. 
+It is possible to select and visualize individual days in the diagrams and snapshots can be taken if required.
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=8.9cm]{images/overviewplots.png}}
+    \caption{Data panel with left and right motor temperatures which are ae presented live as gauges and historic data is presented via the SQLite database.}
+    \label{fig:overviewplots}
+\end{figure}
+
+\subsection{Additional features and considerations}
+Additional features of the framework include: 
+\begin{itemize}
+\item User login system for security purposes
+\item Visualization of the Husky 3D model 
+\item Database connection with a specially developed OPC-UA server, to store other robot data apart from the Husky
+\end{itemize}
+Bootstrap, a frontend framework, was leveraged to facillitate responsive web design \cite{bootstrap}. 
+This allows control elements and data visualizations to be optimally displayed on mobile or desktop devices of the robot operator and ensures that the robot operator retains an overview and control of the robot.
+
+
+
+
+
+
+
 
 \section{RELATED WORK}
 % Geometric navigation approaches that are for example LiDAR based, are especially limited outdoors \cite{wayfast}.
@@ -215,6 +255,8 @@ This is intended to indicate the human operator to take control within the app. 
 \bibitem{wayfaster} M. V. Gasparino et al., "WayFASTER: a Self-Supervised Traversability Prediction for Increased Navigation Awareness," Feb. 2024 arXiv preprint arXiv:2402.00683.
 \bibitem{phri} M. Selvaggio, M. Cognetti, S. Nikolaidis, S. Ivaldi and B. Siciliano, "Autonomy in Physical Human-Robot Interaction: A Brief Survey," in IEEE Robotics and Automation Letters, vol. 6, no. 4, pp. 7989-7996, Oct. 2021, doi: 10.1109/LRA.2021.3100603.
 \bibitem{husky}https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/
+\bibitem{bootstrap}"Introduction," Bootstrap, https://getbootstrap.com/docs/5.3/getting-started/introduction/ (accessed Aug. 9, 2024).
+\bibitem{rosbridgeSuite}"rosbridge\_suite," rosbridge suite - ROS Wiki, http://wiki.ros.org/rosbridge\_suite (accessed March 14, 2024).
 % \bibitem{energy} https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9808373
 % \bibitem{seamless} https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9372861
 
