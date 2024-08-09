@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.15)  9 AUG 2024 21:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.15)  9 AUG 2024 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -349,10 +349,6 @@ File: images/galaxycontrol.jpg Graphic file (type jpg)
 <use images/galaxycontrol.jpg>
 Package pdftex.def Info: images/galaxycontrol.jpg  used on input line 80.
 (pdftex.def)             Requested size: 253.22934pt x 219.97325pt.
-
-LaTeX Warning: Citation `selvaggio2021autonomy' on page 1 undefined on input li
-ne 85.
-
 [1{C:/Users/Kaigom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 
@@ -447,32 +443,28 @@ Overfull \vbox (336.63315pt too high) has occurred while \output is active []
 
 
 [3 <./images/sim_husky_mapping.png> <./images/transversability.pdf, page is rot
-ated 90 degrees>] (root.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+ated 90 degrees>] (root.aux) ) 
 Here is how much of TeX's memory you used:
- 3523 strings out of 478338
- 56809 string characters out of 2836227
+ 3521 strings out of 478338
+ 56780 string characters out of 2836227
  361074 words of memory out of 3000000
- 21900 multiletter control sequences out of 15000+600000
- 533504 words of font info for 160 fonts, out of 8000000 for 9000
+ 21899 multiletter control sequences out of 15000+600000
+ 532397 words of font info for 159 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,10n,62p,1434b,317s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/Kaigom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C
-:/Users/Kaigom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cme
-x10.pfb><C:/Users/Kaigom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb><C:/Users/Kaigom/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><C:/Users/Kaigom/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Kaigom/AppData/Local/Programs/Mi
-KTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Kaigom/AppData/Local/Programs
-/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Kaigom/AppData/Local/Programs
-/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Kaigom/AppData/Local/Program
-s/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Kaigom/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Kaigom/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (3 pages, 4727278 bytes).
+{C:/Users/Kaigom/AppData/Local/Programs/MiKTeX/fo
+nts/enc/dvips/base/8r.enc}<C:/Users/Kaigom/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Kaigom/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Kaigom/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Kaigom/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Kaig
+om/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/K
+aigom/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/K
+aigom/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
+Kaigom/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/User
+s/Kaigom/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Use
+rs/Kaigom/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on root.pdf (3 pages, 4726862 bytes).
 PDF statistics:
  189 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
