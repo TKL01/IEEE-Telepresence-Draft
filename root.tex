@@ -87,7 +87,7 @@ The web framework is based on flask and is used to control and monitor the Husky
 Bidirectional communication between human and the robot is provided by the rosbridge\_suite package [source].   
 Due to the web-based approach, all devices with a browser can access the app, provided they are in the same local network as the robot.
 Fig. \ref{fig:userapp} shows the backend architecture, ROS packages and other relevant information which were leveraged for developing the framework.
-\begin{figure}[t]
+\begin{figure}[b]
     \centerline{\includegraphics[width=8.9cm]{images/ROS_Web_App_Architecture.pdf}}
     \caption{Backend architecture of the web app and tools used.}
     \label{fig:userapp}
@@ -98,7 +98,7 @@ The control panel in Fig. \ref{fig:controlpanel} shows a live image stream (in t
 Below the camera image there is a speed slider and two control elements such as a virtual joystick and virtual keyboard keys for controlling the Husky. 
 In addition, the Husky can be controlled with a physical keyboard when the operator has access to the control panel. Keyboard control can be helpful in situations where precision is required compared to the joystick.
 Other elements such as the battery SoC and the WebSocket connection are also shown embedded in the navigation bar.
-\begin{figure}[b]
+\begin{figure}[t]
     \centerline{\includegraphics[width=0.98\columnwidth]{images/control_panel.png}}
     \caption{Control panel of the Web App with a navigation bar on top, camera stream in the center, control elements left and right and a speed slider to adjust the robot speed.}
     \label{fig:controlpanel}
@@ -231,7 +231,7 @@ This is intended to indicate the human operator to take control within the app. 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=8.9cm]{images/transversability.pdf}}
 	\caption{Shared Control}
-	\label{fig:userapp}
+	\label{fig:sharedcontrol}
 \end{figure}
 \section{CONCLUSIONS}
 
