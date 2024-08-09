@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1723236526 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723236528
+["pdflatex"] 1723238124 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723238126
   "/etc/texmf/web2c/texmf.cnf" 1709736642 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723236525 19588 f915e30e6503547dd437044b6e966006 ""
+  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723238029 21255 780bfce29d6639695a925ace8620d7a1 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -80,14 +80,14 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1710337261 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710429084 1879871 d97401cad6cc0cdbb20515f6e75e398a ""
   "ieeeconf.cls" 1723236157 202166 72fb7520d2463fbe11773e8fc42848df ""
-  "images/ROS_Web_App_Architecture.pdf" 1723220977 247474 744a253acaf82e0802f5df0e28683998 ""
+  "images/ROS_Web_App_Architecture.pdf" 1723238124 247453 752070fa1f928a64aa6ef820bd99ac5a ""
   "images/clip.pdf" 1723222159 1507489 50b9d49257f0acb6ef875f579dd95271 ""
   "images/galaxycontrol.jpg" 1723236157 755258 619cb64cccfa4b3a12f39875f1f5fafc ""
   "images/overviewplots.png" 1711360586 52296 05fd634176d725185ba5f670bdba64eb ""
   "images/sim_husky_mapping.png" 1723219971 2446784 2a07efff16628465695d472eb1746f2e ""
   "images/transversability.pdf" 1723215590 75339 f59e1af060b00a8cf8b3a3c12c9534a0 ""
-  "root.aux" 1723236528 2926 997d8479ba518ec5053cdf3a92da9172 "pdflatex"
-  "root.tex" 1723236525 19588 f915e30e6503547dd437044b6e966006 ""
+  "root.aux" 1723238125 3480 d9aa2591a0ecd7da9480b8ca4408c85f "pdflatex"
+  "root.tex" 1723238029 21255 780bfce29d6639695a925ace8620d7a1 ""
   (generated)
   "root.aux"
   "root.log"
