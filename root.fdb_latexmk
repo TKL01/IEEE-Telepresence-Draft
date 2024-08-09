@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1723238124 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723238126
+["pdflatex"] 1723241423 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723241424
   "/etc/texmf/web2c/texmf.cnf" 1709736642 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723238029 21255 780bfce29d6639695a925ace8620d7a1 ""
+  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723241423 21311 c7d843c2add4ee4111d1500bb69327ba ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -81,13 +81,13 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710429084 1879871 d97401cad6cc0cdbb20515f6e75e398a ""
   "ieeeconf.cls" 1723236157 202166 72fb7520d2463fbe11773e8fc42848df ""
   "images/ROS_Web_App_Architecture.pdf" 1723238124 247453 752070fa1f928a64aa6ef820bd99ac5a ""
-  "images/clip.pdf" 1723222159 1507489 50b9d49257f0acb6ef875f579dd95271 ""
+  "images/clipbig.png" 1723247776 356066 babd7a9b671e406769a7fc5df5882c75 ""
   "images/galaxycontrol.jpg" 1723236157 755258 619cb64cccfa4b3a12f39875f1f5fafc ""
-  "images/overviewplots.png" 1711360586 52296 05fd634176d725185ba5f670bdba64eb ""
   "images/sim_husky_mapping.png" 1723219971 2446784 2a07efff16628465695d472eb1746f2e ""
+  "images/tabletdatasm.png" 1723239458 64383 2b2d48ba12d332a232173025c585948d ""
   "images/transversability.pdf" 1723215590 75339 f59e1af060b00a8cf8b3a3c12c9534a0 ""
-  "root.aux" 1723238125 3480 d9aa2591a0ecd7da9480b8ca4408c85f "pdflatex"
-  "root.tex" 1723238029 21255 780bfce29d6639695a925ace8620d7a1 ""
+  "root.aux" 1723241424 3480 6b5012441831a76448c840c5d847550d "pdflatex"
+  "root.tex" 1723241423 21311 c7d843c2add4ee4111d1500bb69327ba ""
   (generated)
   "root.aux"
   "root.log"
