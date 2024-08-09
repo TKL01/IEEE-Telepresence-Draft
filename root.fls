@@ -374,13 +374,16 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT ./images/overviewplots.png
 INPUT ./images/overviewplots.png
 INPUT images/overviewplots.png
 INPUT ./images/overviewplots.png
 INPUT ./images/overviewplots.png
+INPUT ./images/sim_husky_mapping.png
+INPUT ./images/sim_husky_mapping.png
+INPUT images/sim_husky_mapping.png
+INPUT ./images/sim_husky_mapping.png
+INPUT ./images/sim_husky_mapping.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/zptmcm7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/zptmcm7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/zptmcm7m.tfm
@@ -400,6 +403,8 @@ INPUT ./images/transversability.pdf
 INPUT images/transversability.pdf
 INPUT ./images/transversability.pdf
 INPUT ./images/transversability.pdf
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/zptmcm7y.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm

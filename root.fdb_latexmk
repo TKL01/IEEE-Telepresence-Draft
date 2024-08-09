@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1723216553 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723216554
+["pdflatex"] 1723220633 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723220635
   "/etc/texmf/web2c/texmf.cnf" 1709736642 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723216552 16941 eaedf5850a16e3dd70a526a511bdbf2d ""
+  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723220634 17790 404ed0fbb117be69a1af23459656c126 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -80,12 +80,13 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1710337261 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710429084 1879871 d97401cad6cc0cdbb20515f6e75e398a ""
   "ieeeconf.cls" 1461425939 202167 7b37f8353df61c9733ed46143eff807a ""
-  "images/ROS_Web_App_Architecture.pdf" 1723184075 245888 7f265e9b9ca37e568b323e863f4f6109 ""
+  "images/ROS_Web_App_Architecture.pdf" 1723218794 240897 a564818e7ba783c40e24196455be3cf5 ""
   "images/control_panel.png" 1723143113 455803 d3a30b9e8cb0cbbe7831c6700552134d ""
   "images/overviewplots.png" 1711360586 52296 05fd634176d725185ba5f670bdba64eb ""
+  "images/sim_husky_mapping.png" 1723219971 2446784 2a07efff16628465695d472eb1746f2e ""
   "images/transversability.pdf" 1723215590 75339 f59e1af060b00a8cf8b3a3c12c9534a0 ""
-  "root.aux" 1723216554 2604 57c004ccea721a2702bac80053231b3c "pdflatex"
-  "root.tex" 1723216552 16941 eaedf5850a16e3dd70a526a511bdbf2d ""
+  "root.aux" 1723220634 2929 d40eaccd91b41e21ec17ae9d2b426842 "pdflatex"
+  "root.tex" 1723220634 17790 404ed0fbb117be69a1af23459656c126 ""
   (generated)
   "root.aux"
   "root.log"

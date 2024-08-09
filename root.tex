@@ -75,18 +75,22 @@ Even though these camera-image based neural networks excel in a static environme
 Furthermore, not all parameters can be taken into account in these models. Parameters such as battery state of charge (SoC) or engine temperatures of the robot are equally important to ensure successful and safe navigation.
 It is therefore common for robots to be additionally monitored and controlled by a human operator.
 For these reasons, it is advantageous for a person with better situational awareness to take back control for a certain action or period of time. 
-In this respect, shared autonomy describes a robotic system that independently adapts its autonomy level to the given environmental factors \cite{phri}. 
-To support this physical robot-human interaction (pHRI), intuitive control and monitoring of critical data is required. 
+In this respect, shared autonomy describes a robotic system that independently adapts its autonomy level to the given environmental factors. 
+To support this physical robot-human interaction (pHRI), intuitive control and monitoring of critical data is required.\cite{phri}
+
 We therefore provide the robot operator with a web-based interface that reflects the perception of the robot, visualizes its critical data and offers multiple control options. 
 Security aspects such as login and persistent data storage via a database are also integrated. 
 In addition, a concept for shared autonomy with the Husky UGV mobile robotic platform from Clearpath \cite{husky} and WayFASTER are presented. 
 
 \section{Web Framework}
 
-The web framework is based on flask and is used to control and monitor the Husky, which runs on ROS2 Humble and is platform-independent. 
-Bidirectional communication between human and the robot is provided by the rosbridge\_suite package [source].   
+The web framework is based on flask \cite{flask} and is used to control and monitor the Husky, which runs on ROS2 Humble and is platform-independent. 
+Bidirectional communication between human and the robot is provided by the rosbridge\_suite package \cite{rosbridgeSuite}.   
 Due to the web-based approach, all devices with a browser can access the app, provided they are in the same local network as the robot.
-Fig. \ref{fig:userapp} shows the backend architecture, ROS packages and other relevant information which were leveraged for developing the framework.
+Fig. \ref{fig:userapp} shows the backend architecture, ROS packages and other relevant information which were leveraged for developing the framework. 
+A twist message, which consists of angular and linear velocity, can be sent from the webpage (fronend) via e.g. 
+a virtual joystick to the /cmd\_vel topic of the robot to set it in motion. The ros data published by the robot is in turn displayed on the app (see Fig. \ref{fig:overviewplots}).
+
 \begin{figure}[b]
     \centerline{\includegraphics[width=8.9cm]{images/ROS_Web_App_Architecture.pdf}}
     \caption{Backend architecture of the web app and tools used.}
@@ -108,12 +112,18 @@ The data panel in Fig. \ref{fig:overviewplots} shows critical live robot data su
 Furthermore, the temperatures and the battery SoC are shown in diagrams with time progression. 
 The data for the visualization is provided by an SQLite database, which in turn reads the data from the respective ROS topics of the Husky. 
 It is possible to select and visualize individual days in the diagrams and snapshots can be taken if required.
-
-\begin{figure}[htbp]
+\begin{figure}[b]
     \centerline{\includegraphics[width=8.9cm]{images/overviewplots.png}}
     \caption{Data panel with left and right motor temperatures which are ae presented live as gauges and historic data is presented via the SQLite database.}
     \label{fig:overviewplots}
 \end{figure}
+\begin{figure*}[htbp]
+    \centerline{\includegraphics[width=16.35cm]{images/sim_husky_mapping.png}}
+    \caption{Indoor map generation with LiDAR (SLAM) in a simulation environment.}
+    \label{fig:huskymapping}
+\end{figure*}
+
+
 
 \subsection{Additional features and considerations}
 Additional features of the framework include: 
@@ -209,7 +219,7 @@ In ROS terms are these are what a Twist Message contains.
 
 We plan to integrate the transversability coefficients into our web framework. Since these coefficients have a value of 1 for good transversability and 0 for poor transversability, a threshold can be specified. 
 A value of 0 (for both coefficients) would mean that the robot stops. To ensure a more seamless transition from autonomous control to human control, falling below the defined threshold will result in a warning in the web app.
-This is intended to indicate the human operator to take control within the app. The app is programmed in such a way that human input always has top priority. Specifically, this can be achieved with Husky by sending control commands (geometry\_msgs/Twist\_Message) in different topics with different priorities [source]. 
+This is intended to indicate the human operator to take control within the app. The app is programmed in such a way that human input always has top priority. Specifically, this can be achieved with Husky by sending control commands (geometry\_msgs/Twist\_Message) in different topics with different priorities \cite{controlpriority}. 
 
 %Vom Wayfaster Paper: "The estimator uses the discrete system model shown in \eqref{eq:kino-model} and synchronously runs with the GNSS module on the robot at a sampling time $\Delta t$. We solve the following finite horizon optimization formulation to obtain the system states and unknown parameters $\mu$ and $\nu$."
 
@@ -262,9 +272,11 @@ This is intended to indicate the human operator to take control within the app. 
 \bibitem{BADGR} G. Kahn, P. Abbeel and S. Levine, "BADGR: An Autonomous Self-Supervised Learning-Based Navigation System," in IEEE Robotics and Automation Letters, vol. 6, no. 2, pp. 1312-1319, April 2021, doi: 10.1109/LRA.2021.3057023.
 \bibitem{wayfaster} M. V. Gasparino et al., "WayFASTER: a Self-Supervised Traversability Prediction for Increased Navigation Awareness," Feb. 2024 arXiv preprint arXiv:2402.00683.
 \bibitem{phri} M. Selvaggio, M. Cognetti, S. Nikolaidis, S. Ivaldi and B. Siciliano, "Autonomy in Physical Human-Robot Interaction: A Brief Survey," in IEEE Robotics and Automation Letters, vol. 6, no. 4, pp. 7989-7996, Oct. 2021, doi: 10.1109/LRA.2021.3100603.
-\bibitem{husky}https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/
-\bibitem{bootstrap}"Introduction," Bootstrap, https://getbootstrap.com/docs/5.3/getting-started/introduction/ (accessed Aug. 9, 2024).
+\bibitem{husky}"Husky Unmanned Ground Vehicle," Clearpath, https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/
+\bibitem{flask}"Flask," User’s Guide, https://flask.palletsprojects.com/en/3.0.x/
 \bibitem{rosbridgeSuite}"rosbridge\_suite," rosbridge suite - ROS Wiki, http://wiki.ros.org/rosbridge\_suite (accessed March 14, 2024).
+\bibitem{bootstrap}"Introduction," Bootstrap, https://getbootstrap.com/docs/5.3/getting-started/introduction/ (accessed Aug. 9, 2024).
+\bibitem{controlpriority}"Interfacing with Husky," Clearpath, https://www.clearpathrobotics.com/assets/guides/melodic/husky/InterfacingWithHusky.html
 % \bibitem{energy} https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9808373
 % \bibitem{seamless} https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9372861
 
