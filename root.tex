@@ -32,7 +32,8 @@
 \usepackage{cite}
 
 \title{\LARGE \bf
-Shared Autonomy: A PLACEHOLDER TITLE
+Toward Human-Robot-Teaming for Mobile Robot Navigation Using
+ Remote control,  Digital Twin, and  Transversability Map
 }
 
 
@@ -59,13 +60,15 @@ Shared Autonomy: A PLACEHOLDER TITLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-... and highlight the main aspects of the Web Framework.
+Collision prediction and avoidance is essential for the autonomous navigation of mobile robots. A transversability map is a way to achieve this objective. However, this approach might fail when the environment is subject to  dynamic motion of living or artificial entities. Included are pedestrians, animals, and other vehicles that the robot cannot handle. In this paper, we  embrace this challenge by achieving a flexible human-robot teaming that leverages a shared control of the robot. A human operator can remotely supervise and actively guide the robot as well as  share or leave full control to the robot that autonomously moves toward a desired goal. For this purpose, a situation-aware control signal balances the input of the autonomous robot and the cognitive input of the  remote human operator. The robot employs a  transversability map to autonomously evolve in unstructured environments. In critical situations, the human operator can  intervene and seamlessly operate the robot from everywhere by using any web-capable device.  Such a human-in-the-loop control is realized through a bidirectional wireless communication between the physical robot and its multi-modal digital twin.  The human-robot teaming enhances the likeliness of a successful navigation even without pre-defined goal and dynamics obstacles. The paper outlines the conceptual architecture and shares preliminary results of our approach.
 
 \end{abstract}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
+The navigation of mobile robot in unstructured environments requires the detection, interpretation, and avoidance obstacles. Combining  RGB and depth images, semantic segmentation,  intrinsic and extrinsic  camera parameters to predict a bird?s-eye-view transversability map is an approach to cope with obstacle during navigation \cite{wayfast}. The underlying model obtained through self-supervised training is fed with sensed images. It returns an array of parameters that describe the linear and angular  
+
 Geometric navigation approaches that are for example LiDAR based, are especially limited outdoors \cite{wayfast}.
 Self-supervised autonomous navigation systems such as BADGR \cite{BADGR}, WayFAST \cite{wayfast} or the successor model WayFASTER \cite{wayfaster}, are therefore used to estimate the traversability with regard to bumps and navigable objects such as tall grass.
 Even though these neural networks excel in a static environment, they are constrained in a dynamic and busy environment where people, animals or other objects such as cars are moving.
@@ -184,7 +187,12 @@ This is intended to indicate the human operator to take control within the app. 
    
 
 
-
+\section{Transversability-Based Shared Control}
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=8.9cm]{images/transversability.pdf}}
+	\caption{Shared Control}
+	\label{fig:userapp}
+\end{figure}
 \section{CONCLUSIONS}
 
 
