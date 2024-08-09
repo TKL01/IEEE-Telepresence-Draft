@@ -67,20 +67,23 @@ Collision prediction and avoidance is essential for the autonomous navigation of
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
-The navigation of mobile robot in unstructured environments requires the detection, interpretation, and avoidance obstacles. Combining  RGB and depth images, semantic segmentation,  intrinsic and extrinsic  camera parameters to predict a bird?s-eye-view transversability map is an approach to cope with obstacle during navigation \cite{wayfast}. The underlying model obtained through self-supervised training is fed with sensed images. It returns an array of parameters that describe the linear and angular  
+The navigation of mobile robot in unstructured environments requires the detection, interpretation, and avoidance of obstacles. Combining  RGB and depth images, semantic segmentation,  intrinsic and extrinsic  camera parameters to predict a bird's-eye-view transversability map is an approach to cope with obstacle during navigation \cite{wayfaster,wayfast,endo2024benchnav}. Self-supervised learning is leveraged to train a model that predicts the transferability map from  images forwarded as inputs. The map is obtained as an array of scalar parameters that describe the linear and angular transversability for each point in the Cartesian operational space of the robot  \cite{wayfaster,wayfast,leung2022hybrid,endo2024benchnav}. 
 
-Geometric navigation approaches that are for example LiDAR based, are especially limited outdoors \cite{wayfast}.
-Self-supervised autonomous navigation systems such as BADGR \cite{BADGR}, WayFAST \cite{wayfast} or the successor model WayFASTER \cite{wayfaster}, are therefore used to estimate the traversability with regard to bumps and navigable objects such as tall grass.
-Even though these camera-image based neural networks excel in a static environment, they are constrained in a dynamic and busy environment where people, animals or other objects such as cars are moving.
-Furthermore, not all parameters can be taken into account in these models. Parameters such as battery state of charge (SoC) or engine temperatures of the robot are equally important to ensure successful and safe navigation.
-It is therefore common for robots to be additionally monitored and controlled by a human operator.
-For these reasons, it is advantageous for a person with better situational awareness to take back control for a certain action or period of time. 
-In this respect, shared autonomy describes a robotic system that independently adapts its autonomy level to the given environmental factors. 
-To support this physical robot-human interaction (pHRI), intuitive control and monitoring of critical data is required.\cite{phri}
+A transversability map can capture the semantics obstacles \cite{wayfaster,wayfast,leung2022hybrid}. Transversable tall grasses can thereby be dissociated from a stiff wall with the same height during collision interpretation. In this case, the reachable workspace of the robot is enlarged in contrast to approaches that adopt a purely geometrical collision handling. Autonomous navigation benefits from such a skillful decision. Even though the underlying camera-image based neural networks for  transversability prediction excel in a static environment, they are constrained in dynamic and busy environments where people, animals or other objects such as cars are moving, too. Furthermore, not all parameters can be taken into account in these models. Parameters such as battery state of charge (SoC) or engine temperatures of the robot are equally important to ensure successful and safe navigation. It is therefore common for robots to be additionally teleoperated by a human operator. However, teleoperation might require the constant attention of the operator, which prevents the operator from accomplishing other tasks parallel.
 
-We therefore provide the robot operator with a web-based interface that reflects the perception of the robot, visualizes its critical data and offers multiple control options. 
-Security aspects such as login and persistent data storage via a database are also integrated. 
-In addition, a concept for shared autonomy with the Husky UGV mobile robotic platform from Clearpath \cite{husky} and WayFASTER are presented. 
+
+
+
+In this paper, we focus on a collaborative interaction between a  robot and its remote operator  for a  robot navigation with a customized level of human intervention and robot autonomy. Situational awareness and  supervision skills of humans help guide and assist the robot in challenging situations. Conversely, the autonomous navigation abilities of the robot allow its human operator to focus on additional tasks while the robot moves around toward the completion of a desired common objective. Between this full guidance and entire autonomy, cognitive skills of the human operator (e.g., perception, empathy, anticipation) can superimposed on top of decisions of the motion planner of the robot to refine and adjust the behavior of the robot and facilitate its navigation. This approach is likely to raise the success rate of navigation ob by addressing and combining the skillsets of humans and robots in a seamless and dynamic way.
+
+\begin{figure}[t]
+	\centerline{\includegraphics[width=8.9cm]{images/galaxycontrol.jpg}}
+	\caption{Human-robot-teaming for mobile robot navigation.}
+	\label{fig:galaxycontrol}
+\end{figure}
+
+We  provide the robot operator with a web-based graphical unit accessible from most devices. The unit interfaces the robot through its digital twin, reflects the perception of the internal state of the robot and its surroundings as live video streams, visualizes its critical data, and offers multiple control options at e.g. velocity level. We strive to use  velocity signals from the motion planer of the mobile robot and the unit to realize a shared control \cite{selvaggio2021autonomy} of the robot based upon human-robot teaming. In this case, the level of autonomous  behavior of the robot and amount of human intervention are  balanced by an arbitration factor that depends upon the transversability of the robot in real-time. Security aspects such as login and persistent data storage via a database are also integrated. 
+
 
 \section{Web Framework}
 
@@ -104,7 +107,7 @@ In addition, the Husky can be controlled with a physical keyboard when the opera
 Other elements such as the battery SoC and the WebSocket connection are also shown embedded in the navigation bar.
 
 \begin{figure}[t]
-    \centerline{\includegraphics[width=8.9cm]{images/clip.pdf}}
+    \centerline{\includegraphics[width=\columnwidth]{images/clip.pdf}}
     \caption{Controlling the Husky via the web interface with the virtual joystick, a speed slider and the live camera image.}
     \label{fig:clip}
 \end{figure}
@@ -274,6 +277,8 @@ This is intended to indicate the human operator to take control within the app. 
 \begin{thebibliography}{99}
 
 \bibitem{wayfast} M. V. Gasparino et al., "WayFAST: Navigation With Predictive Traversability in the Field," in IEEE Robotics and Automation Letters, vol. 7, no. 4, pp. 10651-10658, Oct. 2022, doi: 10.1109/LRA.2022.3193464.
+\bibitem{leung2022hybrid}Leung, T., Ignatyev, D. \& Zolotas, A. Hybrid terrain traversability analysis in off-road environments. {\em 2022 8th International Conference On Automation, Robotics And Applications (ICARA)}. pp. 50-56 (2022)
+\bibitem{endo2024benchnav}Endo, M., Honda, K. \& Ishigami, G. BenchNav: Simulation Platform for Benchmarking Off-road Navigation Algorithms with Probabilistic Traversability. {\em IEEE ICRA 2024 Workshop on Resilient Off-road Autonomy}. (2024)
 \bibitem{BADGR} G. Kahn, P. Abbeel and S. Levine, "BADGR: An Autonomous Self-Supervised Learning-Based Navigation System," in IEEE Robotics and Automation Letters, vol. 6, no. 2, pp. 1312-1319, April 2021, doi: 10.1109/LRA.2021.3057023.
 \bibitem{wayfaster} M. V. Gasparino et al., "WayFASTER: a Self-Supervised Traversability Prediction for Increased Navigation Awareness," Feb. 2024 arXiv preprint arXiv:2402.00683.
 \bibitem{phri} M. Selvaggio, M. Cognetti, S. Nikolaidis, S. Ivaldi and B. Siciliano, "Autonomy in Physical Human-Robot Interaction: A Brief Survey," in IEEE Robotics and Automation Letters, vol. 6, no. 4, pp. 7989-7996, Oct. 2021, doi: 10.1109/LRA.2021.3100603.
