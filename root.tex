@@ -88,6 +88,24 @@ In this paper, we strive to relax this constraint. We focus on a loosely-coupled
 
 Toward this end, we  provide the robot operator with a web-based graphical unit accessible from most devices. The unit interfaces the robot through its digital twin, reflects the perception of the internal state of the robot and its surroundings as live video streams, visualizes its critical data, and offers multiple control options at e.g. velocity level. We strive to use  velocity signals from the motion planer of the mobile robot and the graphic unit used by the operator to realize a shared control \cite{phri} of the robot that fosters human-robot-teaming. In this case, the  autonomous behavior of the robot and amount of human interventions are  balanced by an arbitration factor that depends upon the traversability value of the robot in real-time. Security aspects such as login and persistent data storage via a database are  taken into account. 
 
+\begin{figure}[b]
+	\centerline{\includegraphics[width=0.975\columnwidth]{images/tabletdatasm.png}}
+	\caption{Data panel with left and right motor temperatures which are ae presented live as gauges and historic data is presented via the SQLite database.}
+	\label{fig:overviewplots}
+\end{figure}
+
+\begin{figure}[b]
+	\centerline{\includegraphics[width=\columnwidth]{images/telehusky.pdf}}
+	\caption{Remote control of the Husky robot in real-time via the web interface with the virtual joystick, a speed slider and the live camera image.}
+	\label{fig:clip}
+\end{figure}
+
+\begin{figure}[b]
+	\centerline{\includegraphics[width=0.55\columnwidth]{images/DT.pdf}}
+	\caption{Six-layer digital twin architecture.}
+	\label{fig:DT}
+\end{figure}
+
 \section{RELATED WORK}
 
 Virtual-reality (VR) based interactions have been recently proposed in \cite{huang2024evaluation} for the intuitive oversight of robot teams. The VR interface supports the reconstruction of pre-recorded 3D models and real-time capture of scenes, similarly to our work. However,  traversability was not considered to semantically handle obstacles. There are several web-based apps that have been developed for ROS robots such as the Husky Unmanned Ground Vehicle (UGV) from Clearpath (see Fig.\ref{fig:galaxycontrol}) \cite{husky}. These applications are often simple, intuitive and inexpensive as they control virtual robots and are suitable for ROS novices.
@@ -96,11 +114,9 @@ The protection of the app or the visualization and storing of parameters such as
 Hence, among other things, we implement a database and visualize ROS data that the Husky provides via its topics.  Further implementations are described in \ref{sec:framework}.
 Operators have been provided in \cite{walker2024cyber} with egocentric and exocentric 3D perspectives on robots. However, shared control to balance control modes between a planner and operator was omitted. 
 
-\begin{figure}[b]
-	\centerline{\includegraphics[width=8.9cm]{images/ROS_Web_App_Architecture.pdf}}
-	\caption{Backend architecture of the web app and tools used. The digital twin (bottom right) reflects hidden and hardly accessible motor and battery states to assess and predict the feasibility of planned motions.}
-	\label{fig:userapp}
-\end{figure}
+
+
+
 
 \section{Web-Based Interface for remote operator}
 \label{sec:framework}
@@ -120,10 +136,12 @@ Below the camera image there is a speed slider and two control elements such as 
 In addition, the Husky can be controlled with a physical keyboard when the operator has access to the control panel, which is protected by a login system. Keyboard control can be helpful in situations where finer precision is required compared to the joystick.
 Other elements such as the battery SoC and the WebSocket connection are also shown embedded in the navigation bar to ensure that the operator is always informed about the energy and connection status of the robot.
 
-\begin{figure}[b]
-    \centerline{\includegraphics[width=\columnwidth]{images/telehusky.pdf}}
-    \caption{Remote control of the Husky via the web interface with the virtual joystick, a speed slider and the live camera image.}
-    \label{fig:clip}
+
+
+\begin{figure}[t]
+	\centerline{\includegraphics[width=8.9cm]{images/ROS_Web_App_Architecture.pdf}}
+	\caption{Backend architecture of the web app and tools used. The digital twin (bottom right) reflects hidden and hardly accessible motor and battery states to assess and predict the feasibility of planned motions.}
+	\label{fig:userapp}
 \end{figure}
 
    \begin{figure}[hb]
@@ -132,28 +150,21 @@ Other elements such as the battery SoC and the WebSocket connection are also sho
 	\label{fig:statemachine}
 \end{figure}
 
-   \begin{figure}[hb]
+   \begin{figure}[ht]
 	\centerline{\includegraphics[width=\columnwidth]{images/transversability2.pdf}}
 	\caption{Shared control scheme}
 	\label{fig:architecture}
 \end{figure}
+
 
 \subsection{Data panel}
 The data panel in Fig. \ref{fig:overviewplots} shows critical live robot data such as the left and right motor temperatures as gauges. 
 Furthermore, the temperatures and the battery SoC are shown in diagrams with time progression. 
 The data for the visualization is provided by an SQLite database, which in turn reads the data from the respective ROS topics of the Husky. 
 It is possible to select and visualize individual days in the diagrams and snapshots can be taken if required.
-\begin{figure}[ht]
-    \centerline{\includegraphics[width=\columnwidth]{images/tabletdatasm.png}}
-    \caption{Data panel with left and right motor temperatures which are ae presented live as gauges and historic data is presented via the SQLite database.}
-    \label{fig:overviewplots}
-\end{figure}
 
-\begin{figure}[b]
-	\centerline{\includegraphics[width=0.5\columnwidth]{images/DT.pdf}}
-	\caption{Digital twin architecture.}
-	\label{fig:DT}
-\end{figure}
+
+
 %\begin{figure*}[htbp]
 %    \centerline{\includegraphics[width=16.35cm]{images/sim_husky_mapping.png}}
 %    \caption{Indoor map generation with LiDAR (SLAM) in a simulation environment.}
@@ -163,7 +174,7 @@ It is possible to select and visualize individual days in the diagrams and snaps
 
 
 \subsection{Additional features and Considerations}
-Additional features of the framework include a user login system for security purposes and visualization of the Husky 3D model to further increase the human perception of the robot. 
+Additional features of the framework include a user login system for security purposes and a six-layer digital twin architecture (see \cref{fig:DT}) for monitoring, visualization, and control of the Husky 3D model to further increase the human perception and supervision of the robot. 
 The database not only stores ROS and user data, but is also connected to a specially developed OPC UA server. This server provides data from manipulators, e.g., which can be mounted on the Husky. 
 The web interface visualizes this data. It can therefore be regarded as a holistic visual data source.
 Bootstrap, a frontend framework, was leveraged to facillitate responsive web design \cite{bootstrap}. 
@@ -198,7 +209,7 @@ Trained classification models employ images to detect the presence of critical o
 \subsection{Shared control between operator and robot}
 In this control mode, the velocity issued by the human operator ($u_h$) is superimposed on top of the velocity $u_r$ generated by the motion planner (note that $\beta = 1$) to yield the  total commanded velocity.  The lower the traversability value, the higher weighting of the contribution  of the velocity from the operator to the total velocity. If the operator is otherwise engaged ($u_h=0$), the robot evolves autonomously ($h=u_r$). Once the operator is informed or sees that the robot gets stuck ($\alpha \rightarrow 0$), the operator can intervene ($h\approxeq u_r + u_h$) and skillfully sustain the navigation of the mobile robot. 
 \section{CONCLUSIONS}
-This paper has introduced different modes for the multi-modal remote control of a mobile robot for navigation purposes. Thee proposed shared control supports the continuum between the full supervision of the robot motion using human intelligence  and the autonomous robot behavior based upon a semantic-aware machine intelligence (e.g., traversability values). The approach has the potential to support a wide range of application and provides many benefits to the human operator. These include workflow flexibility and enhanced navigation experience. The approach is suitable for not only wheeled but also e.g. legged robot mobile robots.
+This paper has introduced different modes for the multi-modal remote control of a mobile robot for collaborative navigation purposes. The proposed  shared control foster human-robot-teaming and supports the continuum between the full supervision of the robot motion using human intelligence  and the autonomous robot behavior based upon a semantic-aware machine intelligence (e.g., traversability values). The approach has the potential to enable a wide range of applications and provides many benefits to the human operator. These include workflow flexibility and enhanced navigation experience. The approach is suitable for not only wheeled but also e.g. legged robot mobile robots.
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
@@ -225,21 +236,36 @@ This paper has introduced different modes for the multi-modal remote control of 
 \bibitem{wayfast} M. V. Gasparino et al., "WayFAST: Navigation With Predictive Traversability in the Field," in IEEE Robotics and Automation Letters, vol. 7, no. 4, pp. 10651-10658, Oct. 2022, doi: 10.1109/LRA.2022.3193464.
 \bibitem{leung2022hybrid}Leung, T., Ignatyev, D. \& Zolotas, A. Hybrid terrain traversability analysis in off-road environments. {\em 2022 8th International Conference On Automation, Robotics And Applications (ICARA)}. pp. 50-56 (2022)
 \bibitem{endo2024benchnav}Endo, M., Honda, K. \& Ishigami, G. BenchNav: Simulation Platform for Benchmarking Off-road Navigation Algorithms with Probabilistic Traversability. {\em IEEE ICRA 2024 Workshop on Resilient Off-road Autonomy}. (2024)
-\bibitem{BADGR} G. Kahn, P. Abbeel and S. Levine, "BADGR: An Autonomous Self-Supervised Learning-Based Navigation System," in IEEE Robotics and Automation Letters, vol. 6, no. 2, pp. 1312-1319, April 2021, doi: 10.1109/LRA.2021.3057023.
+%\bibitem{BADGR} G. Kahn, P. Abbeel and S. Levine, "BADGR: An Autonomous Self-Supervised Learning-Based Navigation System," in IEEE Robotics and Automation Letters, vol. 6, no. 2, pp. 1312-1319, April 2021, doi: 10.1109/LRA.2021.3057023.
+
 \bibitem{wayfaster} M. V. Gasparino et al., "WayFASTER: a Self-Supervised Traversability Prediction for Increased Navigation Awareness," Feb. 2024 arXiv preprint arXiv:2402.00683.
+
 \bibitem{frey2024roadrunner}Frey, J., Khattak, S., Patel, M., Atha, D., Nubert, J., Padgett, C., Hutter, M. \& Spieler, P. RoadRunner–Learning Traversability Estimation for Autonomous Off-road Driving. {\em ArXiv Preprint ArXiv:2402.19341}. (2024)
+
 \bibitem{muhamad2024robust}Muhamad, F., Kim, J. \& Park, J. Robust Traversability Prediction Using Multiple Costs for Quadruped Robot in Random Terrains. {\em IEEE Access}. (2024)
-\bibitem{phri} M. Selvaggio, M. Cognetti, S. Nikolaidis, S. Ivaldi and B. Siciliano, "Autonomy in Physical Human-Robot Interaction: A Brief Survey," in IEEE Robotics and Automation Letters, vol. 6, no. 4, pp. 7989-7996, Oct. 2021, doi: 10.1109/LRA.2021.3100603.
+
+
+
 \bibitem{huang2024evaluation}Huang, C., Chou, S., Liou, L., Moy, N., Wang, C., Wang, H., Ahn, C., Huang, C. \& Yu, L. An Evaluation Framework of Human-Robot Teaming for Navigation Among Movable Obstacles via Virtual Reality-Based Interactions. {\em IEEE Robotics And Automation Letters}. (2024)
-\bibitem{walker2024cyber}Walker, M., Gramopadhye, M., Ikeda, B., Burns, J. \& Szafir, D. The Cyber-Physical Control Room: A Mixed Reality Interface for Mobile Robot Teleoperation and Human-Robot Teaming. {\em Proceedings Of The 2024 ACM/IEEE International Conference On Human-Robot Interaction}. pp. 762-771 (2024)
-\bibitem{jang2024multi}Jang, S., Lee, H., Kim, W., Lee, J., Woo, S. \& Lee, S. Multi-scale Structural Graph Convolutional Network for Skeleton-based Action Recognition. {\em IEEE Transactions On Circuits And Systems For Video Technology}. (2024)
 \bibitem{husky}"Husky Unmanned Ground Vehicle," Clearpath, https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/ (accessed Aug. 9, 2024).
+
+\bibitem{phri} M. Selvaggio, M. Cognetti, S. Nikolaidis, S. Ivaldi and B. Siciliano, "Autonomy in Physical Human-Robot Interaction: A Brief Survey," in IEEE Robotics and Automation Letters, vol. 6, no. 4, pp. 7989-7996, Oct. 2021, doi: 10.1109/LRA.2021.3100603.
+
+
+
 \bibitem{kapic} Zinaid Kapić, Aladin Crnkić, Edin Mujčić and Jasna Hamzabegović, "A web application for remote control of ROS robot based on WebSocket protocol and Django development environment", in IOP Conf. Ser.: Mater. Sci. Eng. 1208 012035, 2021, doi: 10.1088/1757-899X/1208/1/012035.
 \bibitem{dinodi} D. D. Rajapaksha et al., "Web Based User-Friendly Graphical Interface to Control Robots with ROS Environment," 2021 6th International Conference on Information Technology Research (ICITR), Moratuwa, Sri Lanka, 2021, pp. 1-6, doi: 10.1109/ICITR54349.2021.9657337.
 \bibitem{rosbridgeOkState} Crick, C., Jay, G., Osentoski, S., Pitzer, B., and Jenkins, O. C. "Rosbridge: Ros for non-ros users" in Robotics Research, Springer, 2017.
 \bibitem{rosbridgeSuite}"rosbridge\_suite," rosbridge suite - ROS Wiki, http://wiki.ros.org/rosbridge\_suite (accessed Aug. 9, 2024).
+
+\bibitem{walker2024cyber}Walker, M., Gramopadhye, M., Ikeda, B., Burns, J. \& Szafir, D. The Cyber-Physical Control Room: A Mixed Reality Interface for Mobile Robot Teleoperation and Human-Robot Teaming. {\em Proceedings Of The 2024 ACM/IEEE International Conference On Human-Robot Interaction}. pp. 762-771 (2024)
 \bibitem{flask}"Flask," User’s Guide, https://flask.palletsprojects.com/en/3.0.x/
 \bibitem{bootstrap}"Introduction," Bootstrap, https://getbootstrap.com/docs/5.3/getting-started/introduction/ (accessed Aug. 9, 2024).
+\bibitem{jang2024multi}Jang, S., Lee, H., Kim, W., Lee, J., Woo, S. \& Lee, S. Multi-scale Structural Graph Convolutional Network for Skeleton-based Action Recognition. {\em IEEE Transactions On Circuits And Systems For Video Technology}. (2024)
+
+
+
+
 % \bibitem{controlpriority}"Interfacing with Husky," Clearpath, https://www.clearpathrobotics.com/assets/guides/melodic/husky/InterfacingWithHusky.html (accessed Aug. 9, 2024).
 % \bibitem{energy} https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9808373
 % \bibitem{seamless} https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9372861
