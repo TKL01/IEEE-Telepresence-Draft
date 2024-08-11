@@ -88,22 +88,7 @@ In this paper, we strive to relax this constraint. We focus on a loosely-coupled
 
 Toward this end, we  provide the robot operator with a web-based graphical unit accessible from most devices (see Fig. \ref{fig:galaxycontrol}). The unit interfaces the robot through its digital twin, reflects the perception of the internal state of the robot and its surroundings as live video streams, visualizes its critical data, and offers multiple control options at e.g. velocity level. We strive to sum  velocity signals from the motion planer of the mobile robot and the graphic unit used by the operator to realize a shared control \cite{phri} of the robot that fosters human-robot-teaming. In this case, the  autonomous behavior of the robot and amount of human interventions are  balanced by an arbitration factor that depends upon the traversability map of the robot in real-time. Security aspects such as login and persistent data storage via a database are taken into account. 
 
-\begin{figure}[t]
-	\centerline{\includegraphics[width=8.9cm]{images/ROS_Web_App_Architecture.pdf}}
-	\caption{Backend architecture of the web app and tools used. The digital twin (bottom right) reflects hidden and hardly accessible motor and battery states to assess and predict the feasibility of planned motions.}
-	\label{fig:userapp}
-\end{figure}
 
-\begin{figure}[b]
-	\centerline{\includegraphics[width=0.9\columnwidth]{images/tabletdatasm.png}}
-	\caption{Data panel as component of the digital twin (monitoring service$\slash$interface layer in Fig. \ref{fig:DT}). Sensed left and right motor temperatures are presented live as gauges. Historic data managed via a SQLite database.}
-	\label{fig:overviewplots}
-\end{figure}
-\begin{figure}[b]
-	\centerline{\includegraphics[width=\columnwidth]{images/telehusky.pdf}}
-	\caption{Remote control (top left) of the Husky robot (bottom left) in real-time via the web interface with a virtual joystick, a speed slider and  live camera images (top right). The battery state helps predict motion feasibility.}
-	\label{fig:clip}
-\end{figure}
 
 
 
@@ -126,6 +111,14 @@ Operators have been provided in \cite{walker2024cyber} with egocentric and exoce
 \section{Web-Based Interface for remote operator}
 \label{sec:framework}
 
+\begin{figure}[b]
+	\centerline{\includegraphics[width=8.9cm]{images/ROS_Web_App_Architecture.pdf}}
+	\caption{Backend architecture of the web app and tools used. The digital twin (bottom right) reflects hidden and hardly accessible motor and battery states to assess and predict the feasibility of planned motions.}
+	\label{fig:userapp}
+\end{figure}
+
+
+
 The web framework is based on Flask \cite{flask} and is used to control and monitor the Husky, which runs on ROS2 Humble and is platform-independent. A
 bidirectional communication between human and robot is provided by the rosbridge\_suite package \cite{rosbridgeSuite}.   
 Due to the web-based approach, all devices with a browser can access the app, provided they are in the same local network as the robot.
@@ -144,20 +137,14 @@ Other elements such as the battery SoC and the WebSocket connection are also sho
 
 
 
+
+
+
 \begin{figure}[b]
-	\centerline{\includegraphics[width=0.45\columnwidth]{images/DT.pdf}}
-	\caption{Six-layer architecture of our digital twin. Bottom = 1. layer. Top = 6. layer. 5G connectivity is in the 1. layer. Monitoring, simulation$\slash$extended reality$\slash$Metaverse, and visualization services as well as the computation of Key Performance Indexes (KPI) are carried out in the 5. layer. }
-	\label{fig:DT}
+	\centerline{\includegraphics[width=0.9\columnwidth]{images/tabletdatasm.png}}
+	\caption{Data panel as component of the digital twin (monitoring service$\slash$interface layer in Fig. \ref{fig:DT}). Sensed left and right motor temperatures are presented live as gauges. Historic data managed via a SQLite database.}
+	\label{fig:overviewplots}
 \end{figure}
-
-   \begin{figure}[ht]
-	\centerline{\includegraphics[width=0.85\columnwidth]{images/statemachine.pdf}}
-	\caption{Simplified overview of the multiple modes for remote control }
-	\label{fig:statemachine}
-\end{figure}
-
-
-
 
 \subsection{Data panel}
 The data panel in Fig. \ref{fig:overviewplots} shows critical live robot data such as the left and right motor temperatures as gauges. 
@@ -181,11 +168,31 @@ A specially developed OPC UA server  keeps the framework open, semantically inte
 The web interface visualizes these states by using the digital twin and acts as a multi-modal immersion interface. Bootstrap, a frontend framework, was leveraged to facillitate responsive web design \cite{bootstrap}. 
 This allows control elements and data visualizations to be optimally displayed on mobile or desktop devices and ensures that the operator experiences a pervasive, contextualized, and personalized \mbox{overview and collaboration with the robot.}
 
-
+\begin{figure}[b]
+	\centerline{\includegraphics[width=\columnwidth]{images/telehusky.pdf}}
+	\caption{Remote control (top left) of the Husky robot (bottom left) in real-time via the web interface with a virtual joystick, a speed slider and  live camera images (top right). The battery state helps predict motion feasibility.}
+	\label{fig:clip}
+\end{figure}
 
 
 \section{Multi-modal Remote Control of the Robot}
 We strive to offer three modalities (see Fig. \ref{fig:statemachine}) for the remote control of the mobile robot in our ongoing work. During  full control, the remote operator actively guides the robot. Interface details and  results on this control mode are provided in Fig. \ref{sec:framework}. Its core advantage is the direct usage of experienced human skills and knowledge to yield a thoughtful robot behavior. Since the operator might be occupied with the completion of  tasks with a higher priority, the second autonomous control mode differs  in the sense that the path planner of the robot aims at achieving safe motions and the operator does not intervene. To this end, the path planner is provided with traversability values from a prediction model trained by using self-supervised learning \cite{wayfaster}. A semantic understanding of the terrain  is incorporated in these values. Unlike geometrical approaches, semantic obstacle awareness facilitates an intelligent estimation of traversability in the presence of  different properties of objects. While a stiff wall and tall grass can be geometrically identical, the latter is traversable and the former is not. As human intervention becomes critical, the third shared control mode balances previous schemes by combining human and machine intelligence. Flexibility from autonomy and acumen from supervision are likely to enlarge the range of supported applications and enhance the operator experience in practice.
+
+
+
+
+\begin{figure}[t]
+	\centerline{\includegraphics[width=0.45\columnwidth]{images/DT.pdf}}
+	\caption{Six-layer architecture of our digital twin. Bottom = 1. layer. Top = 6. layer. 5G connectivity is in the 1. layer. Monitoring, simulation$\slash$extended reality$\slash$Metaverse, and visualization services as well as the computation of Key Performance Indexes (KPI) are carried out in the 5. layer. }
+	\label{fig:DT}
+\end{figure}
+
+\begin{figure}[b]
+	\centerline{\includegraphics[width=0.85\columnwidth]{images/statemachine.pdf}}
+	\caption{Simplified overview of the multiple modes for remote control }
+	\label{fig:statemachine}
+\end{figure}
+
 
 A traversability map  contains pairs of linear traversability value $\mu \in [0,1]$  and angular traversability value $\nu\in [0,1]$ for each position on the terrain. A traversability value close to one indicates that a navigation is possible whereas a value close to zero means that the robot  gets stuck \cite{wayfast}. Instead of handling two scalars, the linear and angular traversability values can be combined to yield 
 \begin{equation}
