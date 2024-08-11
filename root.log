@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.15)  11 AUG 2024 09:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.15)  11 AUG 2024 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -354,96 +354,97 @@ ci-ence &
 File: images/galaxycontrol.jpg Graphic file (type jpg)
 <use images/galaxycontrol.jpg>
 Package pdftex.def Info: images/galaxycontrol.jpg  used on input line 79.
-(pdftex.def)             Requested size: 253.22934pt x 219.97325pt.
-[1{C:/Users/Kaigom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+(pdftex.def)             Requested size: 233.43144pt x 202.76042pt.
+
+Underfull \vbox (badness 2096) has occurred while \output is active []
+
+ [1{C:/Users/Kaigom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 
  <./images/galaxycontrol.jpg>]
-<images/tabletdatasm.png, id=10, 805.0075pt x 796.9775pt>
+
+pdfTeX warning: pdflatex.exe (file ./images/ROS_Web_App_Architecture.pdf): PDF 
+inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<images/ROS_Web_App_Architecture.pdf, id=10, 963.6095pt x 542.025pt>
+File: images/ROS_Web_App_Architecture.pdf Graphic file (type pdf)
+<use images/ROS_Web_App_Architecture.pdf>
+Package pdftex.def Info: images/ROS_Web_App_Architecture.pdf  used on input lin
+e 92.
+(pdftex.def)             Requested size: 253.22934pt x 142.43669pt.
+<images/tabletdatasm.png, id=11, 805.0075pt x 796.9775pt>
 File: images/tabletdatasm.png Graphic file (type png)
 <use images/tabletdatasm.png>
-Package pdftex.def Info: images/tabletdatasm.png  used on input line 92.
-(pdftex.def)             Requested size: 233.43144pt x 231.09323pt.
+Package pdftex.def Info: images/tabletdatasm.png  used on input line 98.
+(pdftex.def)             Requested size: 221.14479pt x 218.93234pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./images/telehusky.pdf): PDF inclusion: foun
 d PDF version <1.6>, but at most version <1.5> allowed
-<images/telehusky.pdf, id=12, 619.41661pt x 444.99109pt>
+<images/telehusky.pdf, id=13, 619.41661pt x 444.99109pt>
 File: images/telehusky.pdf Graphic file (type pdf)
 <use images/telehusky.pdf>
-Package pdftex.def Info: images/telehusky.pdf  used on input line 98.
+Package pdftex.def Info: images/telehusky.pdf  used on input line 103.
 (pdftex.def)             Requested size: 245.71811pt x 176.52664pt.
-
+[2 <./images/ROS_Web_App_Architecture.pdf> <./images/tabletdatasm.png> <./image
+s/telehusky.pdf, page is rotated 90 degrees>]
 
 pdfTeX warning: pdflatex.exe (file ./images/DT.pdf): PDF inclusion: found PDF v
 ersion <1.6>, but at most version <1.5> allowed
-<images/DT.pdf, id=13, 262.32504pt x 313.14188pt>
+<images/DT.pdf, id=84, 262.32504pt x 313.14188pt>
 File: images/DT.pdf Graphic file (type pdf)
 <use images/DT.pdf>
-Package pdftex.def Info: images/DT.pdf  used on input line 104.
-(pdftex.def)             Requested size: 122.85905pt x 146.66066pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./images/ROS_Web_App_Architecture.pdf): PDF 
-inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<images/ROS_Web_App_Architecture.pdf, id=14, 963.6095pt x 542.025pt>
-File: images/ROS_Web_App_Architecture.pdf Graphic file (type pdf)
-<use images/ROS_Web_App_Architecture.pdf>
-Package pdftex.def Info: images/ROS_Web_App_Architecture.pdf  used on input lin
-e 142.
-(pdftex.def)             Requested size: 253.22934pt x 142.43669pt.
+Package pdftex.def Info: images/DT.pdf  used on input line 148.
+(pdftex.def)             Requested size: 110.57239pt x 131.99173pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./images/statemachine.pdf): PDF inclusion: f
 ound PDF version <1.6>, but at most version <1.5> allowed
-<images/statemachine.pdf, id=15, 440.87007pt x 348.16374pt>
+<images/statemachine.pdf, id=85, 440.87007pt x 348.16374pt>
 File: images/statemachine.pdf Graphic file (type pdf)
 <use images/statemachine.pdf>
-Package pdftex.def Info: images/statemachine.pdf  used on input line 148.
-(pdftex.def)             Requested size: 221.14479pt x 174.64456pt.
+Package pdftex.def Info: images/statemachine.pdf  used on input line 154.
+(pdftex.def)             Requested size: 208.86188pt x 164.94385pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 190.
 
 
 pdfTeX warning: pdflatex.exe (file ./images/transversability2.pdf): PDF inclusi
 on: found PDF version <1.6>, but at most version <1.5> allowed
-<images/transversability2.pdf, id=16, 677.78758pt x 402.41443pt>
+<images/transversability2.pdf, id=86, 677.78758pt x 402.41443pt>
 File: images/transversability2.pdf Graphic file (type pdf)
 <use images/transversability2.pdf>
-Package pdftex.def Info: images/transversability2.pdf  used on input line 154.
+Package pdftex.def Info: images/transversability2.pdf  used on input line 205.
 (pdftex.def)             Requested size: 245.71811pt x 145.88223pt.
-[2 <./images/tabletdatasm.png> <./images/telehusky.pdf, page is rotated 90 degr
-ees>]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 188.
- [3 <./images/DT.pdf, page is rotated 90 degrees> <./images/ROS_Web_App_Archite
-cture.pdf> <./images/statemachine.pdf, page is rotated 90 degrees>]
-Underfull \hbox (badness 2409) in paragraph at lines 235--236
+[3 <./images/DT.pdf, page is rotated 90 degrees> <./images/statemachine.pdf, pa
+ge is rotated 90 degrees>]
+Underfull \hbox (badness 2409) in paragraph at lines 242--243
 []\OT1/ptm/m/n/8 M. V. Gas-parino et al., "Way-FAST: Nav-i-ga-tion With Pre-dic
 -
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 235--236
+Underfull \hbox (badness 1558) in paragraph at lines 242--243
 \OT1/ptm/m/n/8 tion Let-ters, vol. 7, no. 4, pp. 10651-10658, Oct. 2022, doi:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 []\OT1/ptm/m/n/8 "Husky Un-manned Ground Ve-hi-cle," Clearpath,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 \OT1/ptm/m/n/8 https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robo
 t/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
 []\OT1/ptm/m/n/8 "rosbridge[]suite," ros-bridge suite - ROS Wiki,
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 262--263
+Underfull \hbox (badness 2269) in paragraph at lines 269--270
 []\OT1/ptm/m/n/8 "Introduction," Boot-strap, https://getbootstrap.com/docs/5.3/
 getting-
  []
@@ -467,7 +468,7 @@ Here is how much of TeX's memory you used:
  23641 multiletter control sequences out of 15000+600000
  530285 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,62p,1507b,317s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 55i,10n,62p,1510b,317s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C
 :/Users/Kaigom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Us
 ers/Kaigom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.
@@ -481,7 +482,7 @@ s/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Kaigom/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Kaigom/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Kaigom/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (4 pages, 1630739 bytes).
+Output written on root.pdf (4 pages, 1630773 bytes).
 PDF statistics:
  198 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
