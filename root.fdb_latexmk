@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1723319150 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723319151
+["pdflatex"] 1723374006 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723374007
   "/etc/texmf/web2c/texmf.cnf" 1709736642 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723319150 26930 1ab6b1a2ece9a027f24e98149d6930fb ""
+  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723374006 26270 6fde3e078bab3c2acdf6887eaf07dfc9 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -79,15 +79,15 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1710337261 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710429084 1879871 d97401cad6cc0cdbb20515f6e75e398a ""
   "ieeeconf.cls" 1723236157 202166 72fb7520d2463fbe11773e8fc42848df ""
-  "images/DT.pdf" 1723311857 32617 c953c13fabdf3961de4db5c8e6af2d84 ""
+  "images/DT.pdf" 1723364910 36334 23aca7bc99c4b6715e935d3c981ba462 ""
   "images/ROS_Web_App_Architecture.pdf" 1723238124 247453 752070fa1f928a64aa6ef820bd99ac5a ""
   "images/galaxycontrol.jpg" 1723236157 755258 619cb64cccfa4b3a12f39875f1f5fafc ""
-  "images/statemachine.pdf" 1723313187 39737 e8af9aeb439dfe8b03a5346abe0becf5 ""
+  "images/statemachine.pdf" 1723364910 39549 7256a37c1130d1c0febdddb079c44bac ""
   "images/tabletdatasm.png" 1723239458 64383 2b2d48ba12d332a232173025c585948d ""
   "images/telehusky.pdf" 1723311857 256273 ed7e6a19248f7e6d57dc2d93af15f9cd ""
-  "images/transversability2.pdf" 1723311857 121180 0863250b18977f2b8f8ae8eaa9aa1221 ""
-  "root.aux" 1723319150 4380 1833dd014a7fa57e5dc13e4def539dd7 "pdflatex"
-  "root.tex" 1723319150 26930 1ab6b1a2ece9a027f24e98149d6930fb ""
+  "images/transversability2.pdf" 1723364910 139377 cf8c7e5d3aa828aa590e804e01931f84 ""
+  "root.aux" 1723374007 4917 e5c32c510e97b8e7791c4ed253d04e85 "pdflatex"
+  "root.tex" 1723374006 26270 6fde3e078bab3c2acdf6887eaf07dfc9 ""
   (generated)
   "root.aux"
   "root.log"
