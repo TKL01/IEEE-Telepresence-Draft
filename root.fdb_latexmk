@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1723374006 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723374007
+["pdflatex"] 1723375587 "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" "root.pdf" "root" 1723375587
   "/etc/texmf/web2c/texmf.cnf" 1709736642 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723374006 26270 6fde3e078bab3c2acdf6887eaf07dfc9 ""
+  "/home/tkl/IEEE Telepresence Paper/ieeeconf/root.tex" 1723375586 26667 75f3a48f155b7b1400bf10010e6ea953 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -86,8 +86,8 @@
   "images/tabletdatasm.png" 1723239458 64383 2b2d48ba12d332a232173025c585948d ""
   "images/telehusky.pdf" 1723311857 256273 ed7e6a19248f7e6d57dc2d93af15f9cd ""
   "images/transversability2.pdf" 1723364910 139377 cf8c7e5d3aa828aa590e804e01931f84 ""
-  "root.aux" 1723374007 4917 e5c32c510e97b8e7791c4ed253d04e85 "pdflatex"
-  "root.tex" 1723374006 26270 6fde3e078bab3c2acdf6887eaf07dfc9 ""
+  "root.aux" 1723375587 5055 72eba1bf290b891faffe3d31febdb6da "pdflatex"
+  "root.tex" 1723375586 26667 75f3a48f155b7b1400bf10010e6ea953 ""
   (generated)
   "root.aux"
   "root.log"
