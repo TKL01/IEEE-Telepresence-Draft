@@ -72,7 +72,7 @@ The human-in-the-loop control is realized through a bidirectional wireless commu
 \section{INTRODUCTION}
 The navigation of mobile robot in unstructured environments requires the detection, interpretation, and avoidance of obstacles.  
 Self-supervised learning can be leveraged to train  models that predict the traversability map from RGB and depth images data forwarded as inputs to a motion planner to generate collision-free motions to a desired location \cite{wayfaster,wayfast,leung2022hybrid,endo2024benchnav}. 
-Even thought traversability values can incorporate the semantics of obstacles beyond their standard geometric detection, they reliability can drop in dynamic and previously unseen environments \cite{frey2024roadrunner,muhamad2024robust} where people or other entities exhibit a high motion dynamics, too. Furthermore, pivotal parameters are often overlooked by these models. Included are the battery state of charge (SoC) and engine temperatures of the robot that are equally important to predict a feasible and safe navigation. It is therefore common for robots to be  teleoperated by a human operator \cite{huang2024evaluation,husky}. However, teleoperation might require a constant attention of the operator, which prevents the operator from accomplishing other (e.g., rescue) tasks or being engaged otherwise at the same time.
+Even though traversability values can incorporate the semantics of obstacles beyond their standard geometric detection, their reliability can drop in dynamic and previously unseen environments \cite{frey2024roadrunner,muhamad2024robust} where people or other entities exhibit a high motion dynamics, too. Furthermore, pivotal parameters are often overlooked by these models. Included are the battery state of charge (SoC) and engine temperatures of the robot that are equally important to predict a feasible and safe navigation. It is therefore common for robots to be  teleoperated by a human operator \cite{huang2024evaluation,husky}. However, teleoperation might require a constant attention of the operator, which prevents the operator from accomplishing other (e.g., rescue) tasks or being engaged otherwise at the same time.
 
 
 \begin{figure}[t]
@@ -198,15 +198,7 @@ A traversability map  contains pairs of linear traversability value $\mu \in [0,
 \begin{equation}
 	\alpha = \frac{\lambda_1 \mu + \lambda_2 \nu}{2}
 \end{equation}
-with the weighting coefficients
-\begin{equation}
-	\lambda_1 \in [0,1]
-\end{equation}
-and 
-\begin{equation}
-	\lambda_2 \in [0,1].
-\end{equation}
-Observe that $\alpha \in [0,1]$, too. $\mu = 0$ and $\nu = 0$ together lead  to $\alpha = 0$. Hence, the scalar $\alpha$ can be used to characterize the traversability, as employed in Fig. \ref{fig:architecture} for control purposes.
+with the weighting coefficients $\lambda_1 \in [0,1]$ and $\lambda_2 \in [0,1]$. Observe that $\alpha \in [0,1]$, too. $\mu = 0$ and $\nu = 0$ together lead  to $\alpha = 0$. Hence, the scalar $\alpha$ can be used to characterize the traversability, as employed in Fig. \ref{fig:architecture} for control purposes.
 
    \begin{figure}[ht]
 	\centerline{\includegraphics[width=\columnwidth]{images/transversability2.pdf}}
@@ -217,7 +209,7 @@ Observe that $\alpha \in [0,1]$, too. $\mu = 0$ and $\nu = 0$ together lead  to 
 Conditions for a full robot autonomy to happen are that the arbitration variable $\beta=1$ and $\alpha\rightarrow 1$ in 	Fig. \ref{fig:architecture} and Fig. \ref{fig:statemachine}. As a result, the control velocity $h$ is essentially the output of the motion planner of the  robot $u_r$ (see Fig. \ref{fig:architecture}). It is worth to note that the path planner takes advantage of the traversability values to plan a collision free path that safely guides  the robot to the desired goal without human intervention.  Such a path planner can be the Dynamic Window Approach or  Rapidly-Exploring Random Tree scheme  \cite{leung2022hybrid} to cite a few.
 
 \subsection{Full robot supervision by the human operator}
-Trained classification models employ images to detect the presence of critical obstacles, such as pedestrians (see Fig. \ref{fig:architecture}), interpret their behavior, and inform the operator using cues, as depicted on the right-hand-side of Fig. \ref{fig:architecture}). Methods for behavior identification based upon graph neural networks are suitable to this end \cite{jang2024multi}. In Fig. \ref{fig:architecture}, RGB and depth data from a state-of-the-art Stereolabs ZED 2i stereo camera sensor (see 	Fig. \ref{fig:userapp}) are forwarded to a pre-trained YOLOv8 model for pedestrian detection (position and orientation). The operator is also aware of potential obstacles around the robot  through visual feedback. To manage the situation, the operator takes over the full control of the robot ($\beta = 0$ and $\alpha = 0$), in which case the operator input (i.e., $h=u_h$, see Fig. \ref{fig:architecture}) is directly forwarded to the motion controller as commanded velocity.
+Trained classification models employ images to detect the presence of critical obstacles, such as pedestrians (see Fig. \ref{fig:architecture}), interpret their behavior, and inform the operator using cues, as depicted on the right-hand-side of Fig. \ref{fig:architecture}. Methods for behavior identification based upon graph neural networks are suitable to this end \cite{jang2024multi}. In Fig. \ref{fig:architecture}, RGB and depth data from a state-of-the-art Stereolabs ZED 2i stereo camera sensor (see 	Fig. \ref{fig:userapp}) are forwarded to a pre-trained YOLOv8 model for pedestrian detection (position and orientation). The operator is also aware of potential obstacles around the robot  through visual feedback. To manage the situation, the operator takes over the full control of the robot ($\beta = 0$ and $\alpha = 0$), in which case the operator input (i.e., $h=u_h$, see Fig. \ref{fig:architecture}) is directly forwarded to the motion controller as commanded velocity.
 
 \subsection{Shared control between operator and robot}
 In this control mode, the velocity $u_h$ issued by the human operator  is superimposed on top of the velocity $u_r$ generated by the motion planner (note that $\beta = 1$) to yield the  total commanded velocity.  The lower the  value of $\alpha$, the higher the weighting of the contribution  of $u_h$ to the total velocity $h$ (see Fig. \ref{fig:architecture}). If the operator is otherwise engaged ($u_h=0$), the robot evolves autonomously ($h=u_r$). Once the operator is informed or sees that the robot gets stuck ($\alpha \rightarrow 0$), the operator can intervene ($h\approxeq u_r + u_h$) and skillfully sustain the safe and successful navigation of the mobile robot. 
