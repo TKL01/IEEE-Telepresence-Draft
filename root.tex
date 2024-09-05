@@ -41,7 +41,7 @@ Remote  Control, Digital Twin, and  Self-Supervised  Traversability Prediction
 
 \author{Trung Kien La$^{1}$ and Eric Guiffo Kaigom$^{1}$% <-this % stops a space
 %\thanks{*This work was not supported by any organization}% <-this % stops a space
-\thanks{$^{1}$The authors are with the Deptartment of Computer Science \& Engineering,
+\thanks{$^{1}$The authors are with the Department of Computer Science \& Engineering,
         Frankfurt University of Applied Sciences, 60318 Frankfurt am Main, Germany, e-mails:
         {\tt\small trung.la@stud.fra-uas.de; kaigom@fb2.fra-uas.de}}%
 % \thanks{$^{2}$Eric Guiffo Kaigom is with Deptartment of Computer Science \& Engineering,
@@ -70,9 +70,9 @@ The human-in-the-loop control is realized through a bidirectional wireless commu
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
-The navigation of mobile robot in unstructured environments requires the detection, interpretation, and avoidance of obstacles.  
+The navigation of mobile robots in unstructured environments requires the detection, interpretation, and avoidance of obstacles.  
 Self-supervised learning can be leveraged to train  models that predict the traversability map from RGB and depth images data forwarded as inputs to a motion planner to generate collision-free motions to a desired location \cite{wayfaster,wayfast,leung2022hybrid,endo2024benchnav}. 
-Even though traversability values can incorporate the semantics of obstacles beyond their standard geometric detection, their reliability can drop in dynamic and previously unseen environments \cite{frey2024roadrunner,muhamad2024robust} where people or other entities exhibit a high motion dynamics, too. Furthermore, pivotal parameters are often overlooked by these models. Included are the battery state of charge (SoC) and engine temperatures of the robot that are equally important to predict a feasible and safe navigation. It is therefore common for robots to be  teleoperated by a human operator \cite{huang2024evaluation,husky}. However, teleoperation might require a constant attention of the operator, which prevents the operator from accomplishing other (e.g., rescue) tasks or being engaged otherwise at the same time.
+Even though traversability values can incorporate the semantics of obstacles beyond their standard geometric detection, their reliability can drop in dynamic and previously unseen environments \cite{frey2024roadrunner,muhamad2024robust} where people or other entities exhibit a high motion dynamics, too. Furthermore, pivotal parameters are often overlooked by these models. Included are the battery state of charge (SoC) and engine temperatures of the robot that are equally important to predict a feasible and safe navigation. It is therefore common for robots to be  teleoperated by a human operator \cite{huang2024evaluation,husky}. However, teleoperation might require the constant attention of the operator, which prevents the operator from accomplishing other (e.g., rescue) tasks or being engaged otherwise at the same time.
 
 
 \begin{figure}[t]
@@ -82,11 +82,11 @@ Even though traversability values can incorporate the semantics of obstacles bey
 \end{figure}
 
 
-In this paper, we strive to relax this constraint. We focus on a loosely-coupled collaborative interaction between a  robot and its remote operator  with a customizable level of human intervention and robot autonomy during  safe robot navigation. On the one extremity, an experienced situation understanding and  supervision skills of humans help remotely guide and assist the robot in challenging situations. Uncertainties from unseen classes are expected to be  accommodated and transformed into advantage. On the other extremity, autonomous navigation abilities of the robot allow its human operator to carry out additional tasks while the robot moves toward a desired location. Between full guidance and entire autonomy, cognitive skills of the human operator (e.g., perception, empathy, anticipation, etc.) are being superimposed on top of obstacle-aware commands of the motion planner of the robot to  adjust the behavior of the robot and further upskill its navigation. This collaboration is likely to raise the success rate of  navigation by combining the skillsets of humans and robots \mbox{in a seamless and dynamic way.}
+In this paper, we strive to relax this constraint. We focus on a loosely-coupled collaborative interaction between a  robot and its remote operator  with a customizable level of human intervention and robot autonomy during  safe robot navigation. On the one hand, experienced situation understanding and  supervision skills of humans help remotely guide and assist the robot in challenging situations. Uncertainties from unseen classes are expected to be  accommodated and transformed into advantages. On the other hand, a robot's autonomous navigation abilities allow its human operator to carry out additional tasks while the robot moves toward a desired location. Between full guidance and full autonomy, cognitive skills of the human operator (e.g., perception, empathy, anticipation, etc.) are being superimposed on top of obstacle-aware commands of the motion planner of the robot to  adjust the behavior of the robot and further upskill its navigation. This collaboration is likely to raise the success rate of  navigation by combining the skillsets of humans and robots \mbox{in a seamless and dynamic way.}
 
 
 
-Toward this end, we  provide the robot operator with a web-based graphical unit accessible from most devices (see Fig. \ref{fig:galaxycontrol}). The unit interfaces the robot through its digital twin, reflects the perception of the internal state of the robot and its surroundings as live video streams, visualizes its critical data, and offers multiple control options at e.g. velocity level. We strive to sum  velocity signals from the motion planer of the mobile robot and the graphic unit used by the operator to realize a shared control \cite{phri} of the robot that fosters human-robot-teaming. In this case, the  autonomous behavior of the robot and amount of human interventions are  balanced by an arbitration factor that depends upon the traversability map of the robot in real-time. Security aspects such as login and persistent data storage via a database are taken into account. 
+Toward this end, we  provide the robot operator with a web-based graphical unit accessible from most devices (see Fig. \ref{fig:galaxycontrol}). The unit interfaces the robot through its digital twin, reflects the perception of the internal state of the robot and its surroundings as live video streams, visualizes its critical data, and offers multiple control options at e.g. velocity level. We strive to sum  velocity signals from the motion planer of the mobile robot and the graphic unit used by the operator to realize shared control \cite{phri} of the robot that fosters human-robot-teaming. To this end, the  autonomous behavior of the robot and amount of human interventions are  balanced by an arbitration factor that depends upon the traversability map of the robot in real-time. Security aspects such as login and persistent data storage via a database are taken into account. 
 
 
 
@@ -98,10 +98,10 @@ Toward this end, we  provide the robot operator with a web-based graphical unit 
 
 \section{RELATED WORK}
 
-Virtual-reality (VR) based interactions have been recently proposed in \cite{huang2024evaluation} for the intuitive oversight of robot teams. The VR interface supports the reconstruction of pre-recorded 3D models and real-time capture of scenes, similarly to our work. However,  traversability was not considered to semantically handle obstacles. There are several web-based apps that have been developed for ROS robots such as the Husky Unmanned Ground Vehicle (UGV) from Clearpath (see Fig.\ref{fig:galaxycontrol}) \cite{husky}. These applications are often simple, intuitive and inexpensive as they control virtual robots and are suitable for ROS novices.
+Virtual-reality (VR) based interactions have been recently proposed in \cite{huang2024evaluation} for the intuitive oversight of robot teams. The VR interface supports the reconstruction of pre-recorded 3D models and real-time capture of scenes, similarly to our work. However,  traversability was not considered to semantically handle obstacles. There are several web-based apps that have been developed for ROS robots such as the Husky Unmanned Ground Vehicle (UGV) by Clearpath (see Fig.\ref{fig:galaxycontrol}) \cite{husky}. These applications are often simple, intuitive and inexpensive as they control virtual robots and are suitable for ROS novices.
 They are based on the Rosbrigde protocol, which provides an interface between ROS and web apps via a WebSocket connection\cite{kapic,dinodi,rosbridgeOkState,rosbridgeSuite}.
 The protection of the app or the visualization and storing of parameters such as the real battery SoC play an increasingly critical role for autonomous robots.
-Hence, among other things, we implement a database and visualize ROS data that the Husky provides via its topics.  Further implementations are described in \ref{sec:framework}.
+Hence, we implement a database and visualize ROS data that the Husky provides via its topics.  Further implementations are described in \ref{sec:framework}.
 Operators have been provided in \cite{walker2024cyber} with egocentric and exocentric 3D perspectives on robots. However, shared control to balance control modes between a planner and operator was omitted. 
 
 
@@ -119,9 +119,10 @@ Operators have been provided in \cite{walker2024cyber} with egocentric and exoce
 
 
 
-The web framework is based on Flask \cite{flask} and is used to control and monitor the Husky, which runs on ROS2 Humble and is platform-independent. A
-bidirectional communication between human and robot is provided by the rosbridge\_suite package \cite{rosbridgeSuite}.   
-Due to the web-based approach, all devices with a browser can access the app, provided they are in the same local network as the robot.
+The web framework is based on Flask \cite{flask} and is used to control and monitor the Husky, which runs on ROS2 Humble and is platform-independent.
+Bidirectional communication between human and robot is provided by the rosbridge\_suite package \cite{rosbridgeSuite}.   
+% Due to the web-based approach, all devices with a browser can access the app, provided they are in the same local network as the robot.
+A web-based approach allows the app to be accessible from any device that is in the same local network as the robot.
 Fig. \ref{fig:userapp} shows the backend architecture, ROS packages, and other relevant information which were leveraged for developing the framework. 
 A twist message, which consists of angular and linear velocity, can be sent from the webpage (frontend) via e.g. 
 an intuitive virtual joystick to the /cmd\_vel topic of the robot to teleoperate it. Visualized otherwise invisible ROS data about the robot (see Fig. \ref{fig:overviewplots} and \ref{fig:userapp}) offer a digital twin for decision support.
@@ -129,10 +130,12 @@ an intuitive virtual joystick to the /cmd\_vel topic of the robot to teleoperate
 
 
 \subsection{Control panel}
-The control panel in Fig. \ref{fig:clip} shows a live image stream of a Zed2i camera attached on the Husky. Above the camera image, a navigation bar is located. 
-Below the camera image there is a speed slider and two control elements such as a virtual joystick and virtual keyboard keys for controlling the Husky. The arrangement of the control elements was chosen to reflect the natural hand position when operating the displays.
-In addition, the Husky can be controlled with a physical keyboard when the operator has access to the control panel, which is protected by a login system. Keyboard control can be helpful in situations where finer precision is required compared to the joystick.
-Other elements such as the battery SoC and the WebSocket connection are also shown embedded in the navigation bar to ensure that the operator is always informed about the energy and connection status of the robot to assess the feasibility of a planned navigation.
+The control panel in Fig. \ref{fig:clip} shows a live image stream of a Zed2i camera attached on the Husky. Above the camera image, a navigation bar is located. i
+Below the camera image are two control elements, a virtual joystick and virtual keyboard buttons, which serve as a means for controlling the Husky.
+The arrangement of the control elements was chosen to reflect the natural hand position when operating the displays.
+Additionally, the Husky can be controlled with a physical keyboard when the operator has access to the control panel, which is protected by a login system. Keyboard control can be helpful in situations where finer precision is required compared to the joystick.
+Other elements such as the battery SoC and the WebSocket connection are embedded in the navigation bar to ensure that the operator is always informed of the robot's energy and connection status to assess the feasibility of planned navigation.
+% about the energy and connection status of the robot to assess the feasibility of a planned navigation.
 
 
 
@@ -183,7 +186,7 @@ We strive to offer three modalities (see Fig. \ref{fig:statemachine}) for the re
 
 \begin{figure}[t]
 	\vspace{0.2cm}
-	\centerline{\includegraphics[height=0.7\columnwidth]{images/DT.pdf}}
+	\centerline{\includegraphics[height=0.6\columnwidth]{images/DT.pdf}}
 	\caption{Six-layer architecture of our digital twin. Bottom = 1. layer. Top = 6. layer. 5G connectivity is in the 1. layer. Monitoring, simulation$\slash$extended reality$\slash$Metaverse, and visualization services as well as the computation of Key Performance Indexes (KPI) are carried out in the 5. layer. }
 	\label{fig:DT}
 \end{figure}
@@ -223,7 +226,7 @@ An approach with WebRTC should be evaluated and compared \mbox{against the web v
 
 
 \section{CONCLUSIONS}
-This paper has introduced different modes for the flexible and strengthened remote control of a mobile robot for collaborative navigation purposes. The proposed  shared control foster human-robot-teaming and supports the continuum between the full supervision of the robot motion using human intelligence  and the autonomous robot behavior based upon a semantic-aware machine intelligence (i.e., self-supervised prediction of traversability values). The approach can support a wide range of outdoor and indoor applications and provides many benefits to the human operator. These include the relaxation of attention requirements and enhanced navigation and immersion experience through digital twins. The approach is suitable for  \mbox{wheeled and also e.g. legged mobile robots.}
+This paper has introduced different modes for the flexible and strengthened remote control of a mobile robot for collaborative navigation purposes. The proposed  shared control fosters human-robot-teaming and supports the continuum between the full supervision of the robot motion using human intelligence  and the autonomous robot behavior based upon a semantic-aware machine intelligence (i.e., self-supervised prediction of traversability values). The approach can support a wide range of outdoor and indoor applications and provides many benefits to the human operator. These include the relaxation of attention requirements, enhanced navigation and immersion experience through digital twins. The approach is suitable for  \mbox{wheeled and also e.g. legged mobile robots.}
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
