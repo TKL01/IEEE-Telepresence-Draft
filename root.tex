@@ -34,8 +34,8 @@
 \usepackage{comment}
 
 \title{\LARGE \bf
-Toward Human-Robot-Teaming for  Robot Navigation Using
-Remote  Control, Digital Twin, and  Self-Supervised  Traversability Prediction
+Toward Human-Robot Teaming for  Robot Navigation Using
+Shared  Control, Digital Twin, and  Self-Supervised  Traversability Prediction
 }
 
 
@@ -62,8 +62,8 @@ Remote  Control, Digital Twin, and  Self-Supervised  Traversability Prediction
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-Collision prediction and avoidance are essential for the autonomous navigation of mobile robots. The prediction of a traversability map is a way to achieve this goal. However, this approach might fail if the prediction model is exposed to novel semantic classes unseen during self-supervised training or  the environment is subject to  highly dynamic motions of living and artificial entities. Included are pedestrians, animals, and  vehicles that the robot can hardly handle. In this paper, we  embrace this challenge by describing the development of a flexible human-robot teaming that leverages the shared control of the robot to accommodate critical situations and allow the human operator to be otherwise engaged. The operator can remotely perceive the surrounding and actively guide the robot as well as participatively share or leave full control to the robot that autonomously moves toward a desired common goal. A situation-aware control signal balances the input of the motion planner of the autonomous robot and the cognitive input of the  remote  operator issued by using affordable  interfaces. %The robot employs a  traversability map to autonomously evolve in unstructured environments. In challenging situations, the human operator can  intervene and seamlessly operate the robot from everywhere by using any web-capable device.  
-The human-in-the-loop control is realized through a bidirectional wireless communication between the physical robot and its  digital twin.  The human-robot teaming enhances the likeliness of a safe and successful navigation under dynamic obstacles and enables a navigation without pre-defined goals. The conceptual architecture is introduced and preliminary results are shared.
+Collision prediction and avoidance are essential for the autonomous navigation of mobile robots. The prediction of a traversability map is a way to achieve this goal. However, this approach might fail if the prediction model is exposed to novel semantic classes unseen during self-supervised training or  the environment is subject to  highly dynamic motions of living and artificial entities. Included are pedestrians, animals, and  vehicles that the robot can hardly handle. In this paper, we  embrace this challenge by describing the development of a flexible human-robot teaming that leverages the shared control of the robot to accommodate critical situations and allow the human operator to be otherwise engaged. The operator can remotely perceive the surrounding and actively guide the robot as well as participatively share or leave full control to the robot that autonomously moves toward a desired common goal. A situation-aware control signal balances inputs from the motion planner of the autonomous robot and  cognitive inputs from the  remote  operator issued by using affordable  interfaces. %The robot employs a  traversability map to autonomously evolve in unstructured environments. In challenging situations, the human operator can  intervene and seamlessly operate the robot from everywhere by using any web-capable device.  
+The human-in-the-loop control is realized through a bidirectional wireless communication between the physical robot and its  digital twin.  The human-robot teaming enhances the likelihood of a safe and successful navigation under dynamic obstacles and enables a navigation without pre-defined goals. The conceptual architecture is introduced and preliminary results are shared.
 
 \end{abstract}
 
@@ -72,7 +72,7 @@ The human-in-the-loop control is realized through a bidirectional wireless commu
 \section{INTRODUCTION}
 The navigation of mobile robots in unstructured environments requires the detection, interpretation, and avoidance of obstacles.  
 Self-supervised learning can be leveraged to train  models that predict the traversability map from RGB and depth images data forwarded as inputs to a motion planner to generate collision-free motions to a desired location \cite{wayfaster,wayfast,leung2022hybrid,endo2024benchnav}. 
-Even though traversability values can incorporate the semantics of obstacles beyond their standard geometric detection, their reliability can drop in dynamic and previously unseen environments \cite{frey2024roadrunner,muhamad2024robust} where people or other entities exhibit a high motion dynamics, too. Furthermore, pivotal parameters are often overlooked by these models. Included are the battery state of charge (SoC) and engine temperatures of the robot that are equally important to predict a feasible and safe navigation. It is therefore common for robots to be  teleoperated by a human operator \cite{huang2024evaluation,husky}. However, teleoperation might require the constant attention of the operator, which prevents the operator from accomplishing other (e.g., rescue) tasks or being engaged otherwise at the same time.
+Even though traversability values can incorporate the semantics of obstacles beyond their standard geometric detection, their reliability can drop in dynamic and previously unseen environments \cite{frey2024roadrunner,muhamad2024robust} where people or other entities exhibit a high motion dynamics, too. Furthermore, pivotal parameters are often overlooked by these models. Included are the battery state of charge (SoC) and engine temperatures of the robot that are equally important to predict a feasible and safe navigation without a deterioration of winding insulators in motors. It is therefore common for robots to be  teleoperated by a human operator \cite{huang2024evaluation,husky}. However, teleoperation might require the constant attention of the operator, which prevents the operator from accomplishing other (e.g., rescue) tasks or being engaged otherwise at the same time.
 
 
 \begin{figure}[t]
@@ -82,11 +82,11 @@ Even though traversability values can incorporate the semantics of obstacles bey
 \end{figure}
 
 
-In this paper, we strive to relax this constraint. We focus on a loosely-coupled collaborative interaction between a  robot and its remote operator  with a customizable level of human intervention and robot autonomy during  safe robot navigation. On the one hand, experienced situation understanding and  supervision skills of humans help remotely guide and assist the robot in challenging situations. Uncertainties from unseen classes are expected to be  accommodated and transformed into advantages. On the other hand, a robot's autonomous navigation abilities allow its human operator to carry out additional tasks while the robot moves toward a desired location. Between full guidance and full autonomy, cognitive skills of the human operator (e.g., perception, empathy, anticipation, etc.) are being superimposed on top of obstacle-aware commands of the motion planner of the robot to  adjust the behavior of the robot and further upskill its navigation. This collaboration is likely to raise the success rate of  navigation by combining the skillsets of humans and robots \mbox{in a seamless and dynamic way.}
+In this paper, we strive to relax this constraint. We focus on a loosely-coupled collaborative interaction between a  robot and its remote operator  with a customizable level of human intervention and robot autonomy during  safe robot navigation. On the one hand, experienced situation understanding and  supervision skills of humans help remotely guide and assist the robot in challenging situations. Uncertainties from unseen classes are expected to be  accommodated and transformed into advantages. On the other hand, a robot's autonomous navigation abilities allow its human operator to carry out additional tasks while the robot moves toward a desired location. Between full guidance and full autonomy, cognitive skills of the human operator (e.g., perception, empathy, anticipation, etc.) are being superimposed on top of obstacle-aware commands of the motion planner of the robot to  adjust the behavior of the robot and further upskill its navigation. This collaboration is likely to improve the success rate of  navigation by combining the skillsets of humans and robots \mbox{in a seamless,  dynamic, and symbiotic way.}
 
 
 
-Toward this end, we  provide the robot operator with a web-based graphical unit accessible from most devices (see Fig. \ref{fig:galaxycontrol}). The unit interfaces the robot through its digital twin, reflects the perception of the internal state of the robot and its surroundings as live video streams, visualizes its critical data, and offers multiple control options at e.g. velocity level. We strive to sum  velocity signals from the motion planer of the mobile robot and the graphic unit used by the operator to realize shared control \cite{phri} of the robot that fosters human-robot-teaming. To this end, the  autonomous behavior of the robot and amount of human interventions are  balanced by an arbitration factor that depends upon the traversability map of the robot in real-time. Security aspects such as login and persistent data storage via a database are taken into account. 
+Toward this end, we  provide the robot operator with a web-based graphical unit accessible from most devices (see Fig. \ref{fig:galaxycontrol}). The unit interfaces the robot through its digital twin, reflects the perception of the internal state of the robot and its surroundings as live video streams, visualizes its critical data, and offers multiple control options at e.g. velocity level. We strive to combine  velocity signals from the motion planer of the mobile robot and the graphic unit used by the operator to realize shared control \cite{phri} of the robot that fosters human-robot-teaming. To this end, the  autonomous behavior of the robot and amount of human interventions are  balanced by an arbitration factor that depends upon the traversability map of the robot in real-time. Security aspects such as login and persistent data storage via a database are taken into account. 
 
 
 
@@ -192,8 +192,8 @@ We strive to offer three modalities (see Fig. \ref{fig:statemachine}) for the re
 \end{figure}
 
 \begin{figure}[b]
-	\centerline{\includegraphics[width=0.7\columnwidth]{images/statemachine.pdf}}
-	\caption{Simplified overview of the multiple modes for remote control }
+	\centerline{\includegraphics[width=0.77\columnwidth]{images/statemachine2.pdf}}
+	\caption{Simplified overview of the multiple modes for remote control. }
 	\label{fig:statemachine}
 \end{figure}
 
@@ -207,14 +207,14 @@ with the weighting coefficients $\lambda_1 \in [0,1]$ and $\lambda_2 \in [0,1]$.
    \begin{figure}[ht]
 	\vspace{0.2cm}
 	\centerline{\includegraphics[width=0.95\columnwidth]{images/transversability2.pdf}}
-	\caption{Shared control scheme for human-robot teaming (bottom left)}
+	\caption{Shared control scheme for human-robot teaming (bottom left).}
 	\label{fig:architecture}
 \end{figure}
 \subsection{Autonomous robot behavior without human intervention}
 Conditions for a full robot autonomy to happen are that the arbitration variable $\beta=1$ and $\alpha\rightarrow 1$ in 	Fig. \ref{fig:architecture} and Fig. \ref{fig:statemachine}. As a result, the control velocity $h$ is essentially the output of the motion planner of the  robot $u_r$ (see Fig. \ref{fig:architecture}). It is worth to note that the path planner takes advantage of the traversability values to plan a collision free path that safely guides  the robot to the desired goal without human intervention.  Such a path planner can be the Dynamic Window Approach or  Rapidly-Exploring Random Tree scheme  \cite{leung2022hybrid} to cite a few.
 
 \subsection{Full robot supervision by the human operator}
-Trained classification models employ images to detect the presence of critical obstacles, such as pedestrians (see Fig. \ref{fig:architecture}), interpret their behavior, and inform the operator using cues, as depicted on the right-hand-side of Fig. \ref{fig:architecture}. Methods for behavior identification based upon graph neural networks are suitable to this end \cite{jang2024multi}. In Fig. \ref{fig:architecture}, RGB and depth data from a state-of-the-art Stereolabs ZED 2i stereo camera sensor (see 	Fig. \ref{fig:userapp}) are forwarded to a pre-trained YOLOv8 model for pedestrian detection (position and orientation). The operator is also aware of potential obstacles around the robot  through visual feedback. To manage the situation, the operator takes over the full control of the robot ($\beta = 0$ and $\alpha = 0$), in which case the operator input (i.e., $h=u_h$, see Fig. \ref{fig:architecture}) is directly forwarded to the motion controller as commanded velocity.
+Trained classification models employ images to detect the presence of critical obstacles, such as pedestrians (see Fig. \ref{fig:architecture}), interpret their behavior, and inform the operator using cues, as depicted on the right-hand-side of Fig. \ref{fig:architecture}. Methods for behavior identification based upon graph neural networks are suitable to this end \cite{jang2024multi}. In Fig. \ref{fig:architecture}, RGB and depth data from a  Stereolabs ZED 2i stereo camera sensor (see 	Fig. \ref{fig:userapp}) are forwarded to a pre-trained YOLOv8 model for pedestrian detection (position and orientation) \cite{koennecke}. The operator is also aware of potential obstacles around the robot  through visual feedback. To manage the situation, the operator takes over the full control of the robot ($\beta = 0$ and $\alpha = 0$), in which case the operator input (i.e., $h=u_h$, see Fig. \ref{fig:architecture}) is directly forwarded to the motion controller as commanded velocity.
 
 \subsection{Shared control between operator and robot}
 In this control mode, the velocity $u_h$ issued by the human operator  is superimposed on top of the velocity $u_r$ generated by the motion planner (note that $\beta = 1$) to yield the  total commanded velocity.  The lower the  value of $\alpha$, the higher the weighting of the contribution  of $u_h$ to the total velocity $h$ (see Fig. \ref{fig:architecture}). If the operator is otherwise engaged ($u_h=0$), the robot evolves autonomously ($h=u_r$). Once the operator is informed or sees that the robot gets stuck ($\alpha \rightarrow 0$), the operator can intervene ($h\approxeq u_r + u_h$) and skillfully sustain the safe and successful navigation of the mobile robot. 
@@ -226,7 +226,7 @@ An approach with WebRTC should be evaluated and compared \mbox{against the web v
 
 
 \section{CONCLUSIONS}
-This paper has introduced different modes for the flexible and strengthened remote control of a mobile robot for collaborative navigation purposes. The proposed  shared control fosters human-robot-teaming and supports the continuum between the full supervision of the robot motion using human intelligence  and the autonomous robot behavior based upon a semantic-aware machine intelligence (i.e., self-supervised prediction of traversability values). The approach can support a wide range of outdoor and indoor applications and provides many benefits to the human operator. These include the relaxation of attention requirements, enhanced navigation and immersion experience through digital twins. The approach is suitable for  \mbox{wheeled and also e.g. legged mobile robots.}
+This paper has introduced different modes for the flexible and strengthened remote control of a mobile robot for collaborative navigation purposes. The proposed  shared control fosters human-robot teaming and supports the continuum between the full supervision of the robot motion using human intelligence  and the autonomous robot behavior based upon a semantic-aware machine intelligence (i.e., self-supervised prediction of traversability values). The approach can support a wide range of outdoor and indoor applications and provides many benefits to the human operator. These include the relaxation of attention requirements, enhanced navigation and immersion experience through digital twins. The approach is suitable for  \mbox{wheeled and also e.g. legged mobile robots.}
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
@@ -273,7 +273,7 @@ This paper has introduced different modes for the flexible and strengthened remo
 \bibitem{flask}"Flask," User’s Guide, https://flask.palletsprojects.com/en/3.0.x/
 \bibitem{bootstrap}"Introduction," Bootstrap, https://getbootstrap.com/docs/5.3/getting-started/introduction/ (accessed Aug. 9, 2024).
 \bibitem{jang2024multi}Jang, S., Lee, H., Kim, W., Lee, J., Woo, S. \& Lee, S. Multi-scale Structural Graph Convolutional Network for Skeleton-based Action Recognition. {\em IEEE Trans. On Circuits \& Syst. For Video Techn.}(2024)
-
+\bibitem{koennecke}Koennecke, A., Harmann, R., \& Guiffo Kaigom, E. Human-follower mobile robot with high payload for cross-domain assistance using shared autonomy. {\em Gerontechnology, 23(2), 1-1.}(2024)
 
 
 
